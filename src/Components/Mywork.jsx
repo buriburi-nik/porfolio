@@ -11,7 +11,7 @@ const Mywork = () => {
           </div>
           <div className="mywork-container">
               {mywork_data.map((work, index) => {
-                  return <img key={ index} src={work.w_img} alt=""/>
+                  return <img key={ index} src={work.w_img} alt="" loading="lazy"/>
               })}
           </div>
           <div className="mywork-showmore">
