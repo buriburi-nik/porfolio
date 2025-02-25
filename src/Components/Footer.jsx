@@ -8,7 +8,7 @@ const Footer = () => {
               <div className="footer-top-left">
                   <img src={footer_logo} alt="" />
                   <p>
-                      I am a frontend developer based in India. I am passionate about building user-friendly interfaces and creating engaging experience
+                      I am a frontend developer. I am passionate about building user-friendly interfaces and creating engaging experience
                   </p>
               </div>
 

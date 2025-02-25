@@ -17,10 +17,10 @@ const About = () => {
         <div className="about-right">
           <div className="about-para">
             <p> 
-              I am passionate software engineer with a profound understanding of user experience design. He has worked in various industries such as healthcare, finance, and education, where he has developed innovative solutions that have significantly impacted people's lives. Nikhil is currently working remotely as a software engineer at a start-up company focused on creating digital solutions for healthcare. He is eager to learn new technologies and contribute to the growing field of software engineering.
+              I am a passionate fresher with a strong foundation in software engineering and front-end development. Although  I’m just starting my career, my enthusiasm for technology drives me to continuously learn and grow. I enjoy creating user-friendly designs and innovative digital solutions, and I’m eager to bring my fresh perspective to a dynamic team. I’m ready to tackle challenges, contribute creative ideas, and build a successful career in software engineering.
             </p>
             <p>
-              I am a creative, inquisitive, and problem-solving individual. He is currently looking for a new opportunity to further his career and grow in the field of software engineering. Nikhil is a natural leader and team player, always ready to lend a hand when needed.
+               I’m a creative, inquisitive problem-solver seeking new opportunities in software engineering. As a natural leader and team player, I’m always ready to help.
             </p>
             <div className="about-skills">
               <div className="about-skill"><p>HTML & CSS</p><hr style={{width:"70%"}}/></div>
