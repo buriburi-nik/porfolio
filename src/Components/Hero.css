@@ -107,3 +107,9 @@
     }
 
 }
+
+@media (max-width: 480px){
+    .hero-action{
+        flex-direction: column;
+    }
+}
