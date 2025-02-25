@@ -9,6 +9,7 @@ const Mywork = () => {
               <h1>My latest work</h1>
               <img src={u1} alt="" />
           </div>
+          <br />
           <div className="mywork-container">
               {mywork_data.map((work, index) => {
                   return <img key={ index} src={work.w_img} alt="" loading="lazy"/>

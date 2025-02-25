@@ -24,7 +24,7 @@ const Footer = () => {
           </div>
           <hr />
           <div className="footer-bottom">
-            <p className="footer-bottom-left">�� 2022  All rights reserved. Designed by <a href="https://www.linkedin.com/in/nikhil-gharat-5005a41b6/">Nikhil Gharat</a></p>
+            <p className="footer-bottom-left">2022  All rights reserved. Designed by <a href="https://www.linkedin.com/in/nikhil-gharat-288643166/">Nikhil Gharat</a></p>
               <div className="footer-bottom-right">
                   <p>Term of Services</p>
                   <p>Privacy Policy</p>
