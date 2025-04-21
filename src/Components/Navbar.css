@@ -1,108 +1,141 @@
-.navbar{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-   margin: 20px 170px ; 
+/* General Navbar Styling */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 98%;
+  z-index: 100;
+  padding: 10px 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: none;
+  transition: backdrop-filter 0.3s ease;
 }
 
-.navbar a{
-    text-decoration: none;
-    color: white;
+
+.nav-logo {
+  width: 150px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 20px;
+  font-size: 20px;
+  transition: right 0.5s ease;
+}
+
+.nav-menu li {
+  cursor: pointer;
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+}
+
+.nav-menu li img {
+  display: flex;
+  margin: auto;
+}
+
+.nav-connect {
+  padding: 12px 25px;
+  border-radius: 50px;
+  background: linear-gradient(267deg, #da7c25 0.36%, #b923e1);
+  font-size: 18px;
+  color: white;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: 0.3s ease;
+  flex-shrink: 0;
+}
+
+.nav-connect:hover {
+  transform: scale(1.05);
+  background: linear-gradient(267deg, #da7c25 50%, #b923e1);
+}
+
+/* Mobile Specific Styles */
+.nav-mob-close,
+.nav-mob-open {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
     padding: 10px;
-}
+  }
 
-.nav-menu{
-    display: flex;
-    align-items: center;
-    list-style: none;
-    gap:40px;
-    font-size: 20px;
-}
+  .nav-connect {
+    display: none;
+  }
 
-.nav-menu li{
+  .nav-mob-open {
+    display: block;
+    position: fixed;
+    right: 30px;
+    top: 20px;
+    width: 30px;
     cursor: pointer;
-    display: flex;
-    gap: 5px;
+  }
+
+  .nav-mob-close {
+    display: block;
+    position: absolute;
+    top: 30px;
+    left: 290px;
+    width: 30px;
+    cursor: pointer;
+  }
+
+  .nav-menu {
+    position: fixed;
+    width: 350px;
+    height: 100%;
+    z-index: 2;
+    background-color: #1f0016;
+    top: 0;
+    right: -350px;
     flex-direction: column;
+    /* align-items: flex-start; */
+    gap: 30px;
+    padding-top: 100px;
+    /* padding-left: 50px; */
+  }
+
+  .nav-menu.open {
+    right: 0;
+  }
+
+  .nav-menu li {
+    font-size: 26px;
+    flex-direction: row;
+  }
 }
 
-.nav-menu li img{
-    display: flex; margin: auto;
-}
-.nav-connect{
-    padding: 15px 30px;
-    border-radius: 50px;
-    background: linear-gradient(267deg, #da7c25 0.36%, #b923e1);
-    font-size: 22px;
-    color: white;
-    cursor: pointer;
-    transition: 0.3s ease;
+/* Underline Animation */
+.underline {
+  width: 70px;
+  height: auto;
+  margin-top: 5px;
+  animation: fadeIn 0.3s ease-in-out;
 }
 
-.nav-connect:hover{
-    transform: scale(1.05);
-    background: linear-gradient(267deg, #da7c25 50%, #b923e1);
-}
-
-.nav-menu .dropdown{
-    position: relative;
-}
-
-
-.anchor-link{
-    text-decoration: none;
-    color: white;
-    padding: 0%;
-}
-
-
-.nav-mob-close{
-    display: none;
-}
-
-.nav-mob-open{
-    display: none;
-}
-/* 
-.anchor-link:hover{
-    color: #b923e1;
-} */
-
-@media screen and (max-width: 768px){
-    .navbar{
-        margin: 20px 50px;
-    }
-    
-     .nav-connect{
-        display: none;
-    }
-         .nav-mob-open {
-            display: block;
-            position: fixed;
-            right: 30px;
-        }
-    
-        .nav-mob-close {
-            display: block;
-            position: relative;
-            top: 30px;
-            left: 290px;
-            width: 30px;
-        }
-
-        .nav-menu{
-            position: fixed;
-            width: 350px; height: 100%; z-index: 2;
-            transition: right 0.5s; gap: 30px;
-            background-color: #1f0016; top: 0;
-            align-items: start; flex-direction: column;
-            right: -350px;
-        }
-
-        .nav-menu li{
-            gap: 20px;
-            font-size: 30px;
-            padding-left:100px;
-            flex-direction: row;
-        }
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

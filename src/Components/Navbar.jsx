@@ -1,70 +1,104 @@
-import './Navbar.css'
-import  { useRef } from 'react';
-import logo from '../assets/logo.svg'
-import { useState } from 'react'
-import underline from '../assets/nav_underline.svg'
+import './Navbar.css';
+import { useEffect, useRef, useState } from 'react';
+import logo from '../assets/logo.svg';
+import underline from '../assets/nav_underline.svg';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
-import menu_open from '../assets/menu_open.svg'
-import menu_close from '../assets/menu_close.svg'
+import menu_open from '../assets/menu_open.svg';
+import menu_close from '../assets/menu_close.svg';
+
+const sections = ["home", "about", "services", "work", "contact"];
 
 const Navbar = () => {
-  const [menu, setMenu] = useState("home");
-  const menuRef = useRef();
+  const [activeMenu, setActiveMenu] = useState("home");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef(null);
 
-  const openMenu = () => {
-    menuRef.current.style.right="0"
-  }
+  // Scroll-based active section
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (let entry of entries) {
+          if (entry.isIntersecting) {
+            setActiveMenu(entry.target.id);
+            break;
+          }
+        }
+      },
+      { threshold: 0.6 }
+    );
 
-  const closedMenu = () => {
-    menuRef.current.style.right="-350px"
-  }
+    sections.forEach((id) => {
+      const section = document.getElementById(id);
+      if (section) observer.observe(section);
+    });
+
+    return () => {
+      sections.forEach((id) => {
+        const section = document.getElementById(id);
+        if (section) observer.unobserve(section);
+      });
+    };
+  }, []);
+
+  // Close on outside click (for mobile menu)
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target) && isMenuOpen) {
+        setIsMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isMenuOpen]);
+
+  const handleMenuClick = (menu) => {
+    setActiveMenu(menu);
+    setIsMenuOpen(false);
+  };
 
   return (
-    <div className="navbar">
-      <img src={logo} alt="Logo" />
-      <img src={menu_open} onClick={openMenu} alt="" className='nav-mob-open' />
+    <div className={`navbar ${isMenuOpen ? 'blur-bg' : ''}`}>
+      <img src={logo} alt="Logo" className="nav-logo" draggable="false" />
 
-      <ul ref={menuRef} className="nav-menu">
-        <img src={menu_close} onClick={closedMenu} alt="" className="nav-mob-close" />
-        <li>
-          <AnchorLink className="anchor-link" href="#home" offset={50}>
-            <p onClick={() => setMenu("home")}>Home</p>
-            {menu === "home" && <img src={underline} alt="underline" />}
+      <img
+        src={menu_open}
+        onClick={() => setIsMenuOpen(true)}
+        alt="Open Menu"
+        className="nav-mob-open"
+        draggable="false"
+        aria-label="Open navigation menu"
+      />
+
+      <ul ref={menuRef} className={`nav-menu ${isMenuOpen ? "open" : ""}`}>
+        <img
+          src={menu_close}
+          onClick={() => setIsMenuOpen(false)}
+          alt="Close Menu"
+          className="nav-mob-close"
+          draggable="false"
+          aria-label="Close navigation menu"
+        />
+
+        {sections.map((id) => (
+          <li key={id}>
+            <AnchorLink
+              className="anchor-link"
+              href={`#${id}`}
+              offset={50}
+              onClick={() => handleMenuClick(id)}
+            >
+              <p>{id === "work" ? "Portfolio" : id === "about" ? "About Me" : id.charAt(0).toUpperCase() + id.slice(1)}</p>
+              {activeMenu === id && (
+                <img src={underline} alt="underline" className="underline" />
+              )}
             </AnchorLink>
-        </li>
-
-        <li>
-          <AnchorLink className="anchor-link" href="#about" offset={50}>
-            <p onClick={() => setMenu("about")}>About Me</p>
-          {menu === "about" && <img src={underline} alt="underline" />}
-          </AnchorLink>
-        </li>
-
-        <li>
-          <AnchorLink className="anchor-link" href="#services" offset={50}>
-            <p onClick={() => setMenu("services")}>Services</p>
-          {menu === "services" && <img src={underline} alt="underline" />}
-          </AnchorLink>
-        </li>
-
-        <li>
-          <AnchorLink className="anchor-link" href="#work" offset={50}>
-            <p onClick={() => setMenu("work")}>Portfolio</p>
-            {menu === "work" && <img src={underline} alt="underline" />}
-            </AnchorLink>
-        </li>
-
-        <li>
-          <AnchorLink className="anchor-link" href="#contact" offset={50}>
-            <p onClick={() => setMenu("contact")}>Contact</p>
-            {menu === "contact" && <img src={underline} alt="underline" />}
-            </AnchorLink>
-        </li>
+          </li>
+        ))}
       </ul>
 
-      <div className="nav-connect"><AnchorLink className="anchor-link" href="#contact" offset={50}>
-        Connect With me
-      </AnchorLink></div>
+      <AnchorLink href="#contact" offset={50}>
+        <button className="nav-connect">Connect With Me</button>
+      </AnchorLink>
     </div>
   );
 };

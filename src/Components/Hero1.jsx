@@ -1,10 +1,15 @@
+// src/Components/Hero1.jsx
 import profile from '../assets/gojo.png'
 import './Hero.css'
+import ThreeScene from './ThreeScene'
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 const Hero = () => {
   return (
-    <div  id='home' className='hero'>
+    <div id='home' className='hero'>
+      <div className="hero-3d-container">
+        <ThreeScene />
+      </div>
       <img src={profile} alt="" className='profile' />
       <h1>
         <span>{`I'm Nikhil Gharat,`}</span>
