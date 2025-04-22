@@ -1,5 +1,5 @@
 import profile from '../assets/gojo.png';
-import resume from './resume.pdf';
+// import resume from '../assets/';
 import './Hero.css';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import { FaDownload } from 'react-icons/fa';
@@ -34,7 +34,7 @@ const Hero = () => {
   className="custom-resume-button gradient-resume"
 >
   <a
-    href={resume}
+     href="/Resume.pdf" 
     download="Nikhil_Gharat_Resume.pdf"
     className="resume-link"
   >
