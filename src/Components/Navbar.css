@@ -1,151 +1,81 @@
-/* General Navbar Styling */
-.navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+/* Header section */
+.nav-header {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 98%;
-  z-index: 100;
-  padding: 10px 20px;
-  background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: none;
-  transition: backdrop-filter 0.3s ease;
+  top: 20px;
+  left: 20px;
+  width: calc(100% - 40px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1001;
 }
 
 .nav-logo {
-  width: 150px;
+  width: 140px;
 }
 
-.navbar a {
-  text-decoration: none;
-  color: white;
-  padding: 10px;
-}
-
-.nav-menu {
-  display: flex;
-  align-items: center;
-  list-style: none;
-  gap: 20px;
-  font-size: 20px;
-  transition: right 0.5s ease;
-}
-
-.nav-menu li {
+.nav-toggle-btn {
+  width: 30px;
   cursor: pointer;
+  z-index: 1002;
+}
+
+/* Sidebar styles */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 260px;
+  height: 100vh;
+  background-color: #1f0016;
+  padding-top: 80px;
+  z-index: 1000;
   display: flex;
-  gap: 5px;
   flex-direction: column;
+  padding-left: 30px;
+  box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
 }
 
-.nav-menu li img {
-  display: flex;
-  margin: auto;
-}
-
-.nav-connect {
-  padding: 12px 25px;
-  border-radius: 50px;
-  background: linear-gradient(267deg, #da7c25 0.36%, #b923e1);
-  font-size: 18px;
-  color: white;
-  white-space: nowrap;
+.sidebar-close {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  width: 30px;
   cursor: pointer;
-  transition: 0.3s ease;
-  flex-shrink: 0;
+  z-index: 1002;
 }
 
-.nav-connect:hover {
-  transform: scale(1.05);
-  background: linear-gradient(267deg, #da7c25 50%, #b923e1);
+.sidebar-menu {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
 }
 
-/* Mobile Specific Styles */
-.nav-mob-close,
-.nav-mob-open {
-  display: none;
+.nav-item {
+  cursor: pointer;
 }
 
-@media screen and (min-width: 768px) {
-  /* Navbar Adjustments for Mobile */
-  .navbar {
-    padding: 10px;
-    justify-content: space-between;
-  }
-
-  .nav-connect {
-    display: none; /* Hide connect button on mobile */
-  }
-
-  /* Mobile Open Button */
-  .nav-mob-open {
-    display: block;
-    position: fixed;
-    right: 30px;
-    top: 20px;
-    width: 30px;
-    cursor: pointer;
-    z-index: 101; /* Ensure it's above navbar */
-  }
-
-  /* Mobile Close Button */
-  .nav-mob-close {
-    display: block;
-    position: absolute;
-    top: 30px;
-    right: 30px; /* Adjust to make it align properly */
-    width: 30px;
-    cursor: pointer;
-    z-index: 102; /* Ensure it's above the menu */
-  }
-
-  /* Mobile Menu Styling */
-  .nav-menu {
-    position: fixed;
-    width: 250px;
-    height: 100%;
-    z-index: 100;
-    background-color: #1f0016;
-    top: 0;
-    right: -250px;
-    flex-direction: column;
-    gap: 30px;
-    padding-top: 80px;
-    transition: right 0.5s ease;
-  }
-
-  .nav-menu.open {
-    right: 0;
-  }
-
-  .nav-menu li {
-    font-size: 24px;
-    flex-direction: row;
-    margin: 15px 0;
-  }
-
-  .nav-menu li p {
-    padding-left: 15px; 
-  }
+.nav-item p {
+  color: white;
+  font-size: 18px;
+  margin: 0;
 }
-
 
 .underline {
   width: 70px;
-  height: auto;
   margin-top: 5px;
-  animation: fadeIn 0.3s ease-in-out;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-5px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+.nav-cta {
+  margin-top: auto;
+  padding-bottom: 40px;
+  padding-right: 20px;
+}
+
+/* Optional for responsiveness */
+@media screen and (min-width: 769px) {
+  body {
+    padding-left: 0; /* Sidebar now only appears on toggle */
   }
 }
