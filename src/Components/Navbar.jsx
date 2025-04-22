@@ -18,7 +18,7 @@ const menuSlide = {
     transition: { 
       duration: 0.8, 
       ease: [0.76, 0, 0.24, 1], 
-      delay: 0.2  // Delay added for opening animation
+      // Delay added for opening animation
     } 
   },
   exit: { 
@@ -46,13 +46,13 @@ const slide = {
     transition: { 
       duration: 0.8, 
       ease: [0.76, 0, 0.24, 1], 
-      delay: 0.05 * i 
+      delay: 0.5 * i 
     }
   })
 };
 
 const scale = {
-  open: { scale: 1, transition: { duration: 0.3 } },
+  open: { scale: 1, transition: { duration: 0.7 } },
   closed: { scale: 0, transition: { duration: 0.4 } }
 };
 
