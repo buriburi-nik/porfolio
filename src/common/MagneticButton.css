@@ -3,13 +3,14 @@
   padding: 12px 25px;
   border-radius: 50px;
   background: linear-gradient(267deg, #da7c25 0.36%, #b923e1);
+
   font-size: 18px;
   color: white;
   white-space: nowrap;
   cursor: pointer;
   transition: 0.3s ease;
   flex-shrink: 0;
-  border: none; /* Remove border */
+  border: solid 2px white; /* Remove border */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -24,7 +25,7 @@
 
 .roundedButton:hover {
   transform: scale(1.05);
-  background: linear-gradient(267deg, #da7c25 50%, #b923e1);
+  /* background: linear-gradient(267deg, #da7c25 50%, #b923e1); */
 }
 
 .roundedButton:hover p {
