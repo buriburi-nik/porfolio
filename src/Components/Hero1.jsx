@@ -14,7 +14,7 @@ const Hero = () => {
       <img src={profile} alt="Profile" className="profile" />
 
       <h1>
-        <span>{`I'm Nikhil Gharat,`}</span> a Frontend Developer based in India
+        <span>{`I'm Nikhil Gharat,`}</span> a Frontend Developer
       </h1>
 
       <p>

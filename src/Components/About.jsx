@@ -72,7 +72,7 @@ const About = () => {
           </div>
         </div>
       </div>
-
+      
       <div className="about-achievements">
         <div className="about-achievenment glowing-card">
           <h1>FRESHER</h1>
@@ -82,9 +82,12 @@ const About = () => {
           <h1 ref={(el) => (countersRef.current[0] = el)} data-target="6">0</h1>
           <p>PROJECTS COMPLETED</p>
         </div>
+        <hr />
+        <div className="about-achievenment glowing-card">
+          <h1>3</h1>
+        <p>CERTIFICATES EARNED</p>
       </div>
-
-
+      </div>
     </div>
   );
 };

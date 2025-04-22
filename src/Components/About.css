@@ -29,6 +29,7 @@
   gap: 80px;
   align-items: center;
   justify-content: center;
+  margin-bottom: 2rem;
 }
 
 .about-left {
@@ -208,8 +209,9 @@
   .about-section {
     flex-direction: column;
     gap: 40px;
-    align-items: center;
-  }
+    align-items: center; margin-bottom: none;
+}
+  
 
   .model-container {
     width: 260px;
