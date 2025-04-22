@@ -1,5 +1,5 @@
 import profile from '../assets/gojo.png';
-import resume from '../assets/resume.pdf';
+import resume from './resume.pdf';
 import './Hero.css';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import { FaDownload } from 'react-icons/fa';
