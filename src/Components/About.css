@@ -1,204 +1,279 @@
-/* src/Components/About.css */
-.about{
-    display: flex;
-    justify-content: center;
-    gap: 80px;
-    align-items: center;
-    flex-direction: column;
-    margin: 80px 170px;
+.about {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  align-items: center;
+  flex-direction: column;
+  margin: 80px 170px;
 }
 
-.about-title{
-    position: relative;
+.about-title {
+  position: relative;
 }
 
-.about-title h1{
-    padding: 0px 30px;
-    font-size: 80px;
-    font-weight: 600;
+.about-title h1 {
+  padding: 0px 30px;
+  font-size: 80px;
+  font-weight: 600;
 }
 
-.about-title img{
-    position: absolute;
-    z-index: -1;
-    bottom: 0;
-    right: 0;
-    right: 150;
+.about-title img {
+  position: absolute;
+  z-index: -1;
+  bottom: 0;
+  right: 150px; /* Fixed unit */
 }
 
-.about-section{
-    display: flex;
-    gap:80px;
+.about-section {
+  display: flex;
+  gap: 80px;
+  align-items: center;
+  justify-content: center;
 }
 
-.about-left{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.about-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .model-container {
-    width: 320px;
-    height: 320px;
-    position: relative;
-    border-radius: 10px;
-    background: radial-gradient(circle at center, rgba(185, 35, 225, 0.2) 0%, rgba(0, 0, 0, 0) 70%);
-    transition: all 0.3s ease;
+  width: 320px;
+  height: 320px;
+  position: relative;
+  border-radius: 10px;
+  background: radial-gradient(circle at center, rgba(185, 35, 225, 0.2) 0%, rgba(0, 0, 0, 0) 70%);
+  transition: all 0.3s ease;
 }
 
 .model-container:hover {
-    background: radial-gradient(circle at center, rgba(185, 35, 225, 0.3) 0%, rgba(0, 0, 0, 0) 80%);
-    transform: scale(1.05);
+  background: radial-gradient(circle at center, rgba(185, 35, 225, 0.3) 0%, rgba(0, 0, 0, 0) 80%);
+  transform: scale(1.05);
 }
 
-.avatar-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    cursor: grab;
+.about-right {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
 }
 
-.avatar-container:active {
-    cursor: grabbing;
+.about-para {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 20px;
+  font-weight: 500;
 }
 
-.about-right{
-    display: flex;
-    flex-direction: column;
-    gap: 80px;
+.about-skills {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 20px;
+  font-weight: 500;
 }
 
-.about-para{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    font-size: 20px;
-    font-weight: 500;
+.about-skill {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  transition: 0.3s;
 }
 
-.about-skills{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    font-size: 20px;
-    font-weight: 500;
+.about-skill p {
+  min-width: 150px;
+  font-size: 24px;
+  font-weight: 500;
 }
 
-.about-skill{
-    display: flex;
-    gap:50px;
-    align-items: center;
-    transition: 0.3s;
+.about-skill hr {
+  outline: none;
+  border: none;
+  height: 8px;
+  border-radius: 50px;
+  background: linear-gradient(267deg, #da7c25 0.36%, #b923e1);
 }
 
-.about-skill p{
-    min-width: 150px;
-    font-size:24px;
-    font-weight: 500;
+/* Tooltip Styling */
+.tooltip-container {
+  position: relative;
+  width: 100%;
 }
 
-.about-skill hr{
- outline: none;   
- border: none;
- width: 50%;
- height: 8px;
- border-radius: 50px;
-background: linear-gradient(267deg, #da7c25 0.36%, #b923e1);
+.tooltip {
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s;
+  position: absolute;
+  top: -30px;
+  left: 0;
+  background-color: #000;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  transform: translateY(10px);
+  pointer-events: none;
 }
 
-.about-achievements{
-    display: flex;
-    width: 100%;
-    /* flex-direction: column; */
-justify-content: space-around;
-margin-bottom: 80px;    
+.tooltip-container:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+.about-skill hr {
+  outline: none;
+  border: none;
+  height: 8px;
+  border-radius: 50px;
+  background: linear-gradient(267deg, #da7c25 0.36%, #b923e1);
+  width: 100%; /* Add this line */
 }
 
-.about-achievenment{
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    flex-direction: column;
-    align-items: center;
-    transition: 0.3s;
+.about-achievements {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  margin-bottom: 80px;
+  flex-wrap: wrap;
+  gap: 30px;
 }
 
-.about-achievenment h1{
-    font-size: 60px;
-    font-weight: 600;
-    background: linear-gradient(267deg, #da7c25 0.36%, #b923e1);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
+/* Glowing Card Style */
+.glowing-card {
+  background: linear-gradient(145deg, #1f1f1f, #2c2c2c);
+  border-radius: 20px;
+  padding: 30px 50px;
+  box-shadow: 0 0 25px rgba(185, 35, 225, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  min-width: 200px;
+  flex: 1;
 }
 
-.about-skill:hover{
-    transform: scale(1.05); transition: 0.3s;
+.glowing-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 40px rgba(185, 35, 225, 0.6);
 }
 
-.about-achievenment:hover{
-    transform: scale(1.05); transition: 0.3s;
+.about-achievenment h1 {
+  font-size: 60px;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(267deg, #da7c25, #b923e1);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
 }
 
+.about-achievenment p {
+  color: white;
+}
+
+.about-skill:hover {
+  transform: scale(1.05);
+}
+
+.about-achievenment:hover {
+  transform: scale(1.05);
+}
+
+#pro {
+  width: 250px;
+  height: auto;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-    .about{
-        gap: 80px;
-        margin: 50px 70px;
-        align-self: start;
-    }
+  .about {
+    gap: 60px;
+    margin: 50px 30px;
+    align-self: start;
+  }
 
-    .about-title h1{
-        font-size: 50px;
-        padding: 0;
-    }
+  .about-title h1 {
+    font-size: 50px;
+    padding: 0;
+    text-align: center;
+  }
 
-    .about-title img{
-        right: -20px;
-        width: 130px;
-    }
+  .about-title img {
+    right: -20px;
+    width: 130px;
+  }
 
-    .about-sections{
-        flex-direction: column;
-    }
+  .about-section {
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+  }
 
-    .model-container {
-        width: 260px;
-        height: 260px;
-    }
+  .model-container {
+    width: 260px;
+    height: 260px;
+  }
 
-    .about-para{
-        font-size: 18px;
-        line-height: 32px;
-    }
+  .about-right {
+    gap: 40px;
+  }
+  .about-skills{
+    align-items: center;
+  }
 
-    
-    .about-skill{
-        gap: 2px;
-        align-items: center;
-    }
-    .about-skills p{
-        font-size: 20px;
-    }
-    .about-skill hr{
-        height: 6px;
-        width: 100%;
-    }
+  .about-para {
+    font-size: 18px;
+    line-height: 32px;
+    text-align: center;
+  }
 
-    
+  .about-skill {
+    gap: 10px;
+    width: 80%;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .about-achievements{
-        justify-content: space-between;
+  .about-skill p {
+    font-size: 20px;
+    align-self: start;
+  }
 
-    }
-    .about-achievenment{
-        gap: 10px;
-    }
-    .about-achievenment h1{
-        font-size: 34px; font-weight: 700;
-    }
+.tooltip-container hr {
+  height: 6px;
+  width: 100%; /* Keeps it full inside container */
+}
 
-    .about-achievenment p{
-        text-align: center;
-        font-size: 16px;
-    }
+  .about-achievements {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .about-achievenment h1 {
+    font-size: 34px;
+    font-weight: 700;
+  }
+
+  .about-achievenment p {
+    text-align: center;
+    font-size: 16px;
+  }
+ #pro {
+  max-width: 200px;
+  margin: 0 auto 20px; 
+  display: block;      
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+  .about-left {
+    justify-content: center;
+  }
+
+  .about-achievements hr{
+    display: none;
+  }
 }

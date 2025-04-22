@@ -31,7 +31,7 @@ const Hero = () => {
               </MagneticButton>
 
 <MagneticButton
-  className="custom-resume-button gradient-resume"
+  className="custom-resume-button gradient-resume" backgroundColor="#FF3D00"
 >
   <a
      href="/Resume.pdf" 
