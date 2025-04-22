@@ -14,7 +14,6 @@
   transition: backdrop-filter 0.3s ease;
 }
 
-
 .nav-logo {
   width: 150px;
 }
@@ -70,14 +69,17 @@
 }
 
 @media screen and (max-width: 768px) {
+  /* Navbar Adjustments for Mobile */
   .navbar {
     padding: 10px;
+    justify-content: space-between;
   }
 
   .nav-connect {
-    display: none;
+    display: none; /* Hide connect button on mobile */
   }
 
+  /* Mobile Open Button */
   .nav-mob-open {
     display: block;
     position: fixed;
@@ -85,30 +87,33 @@
     top: 20px;
     width: 30px;
     cursor: pointer;
+    z-index: 101; /* Ensure it's above navbar */
   }
 
+  /* Mobile Close Button */
   .nav-mob-close {
     display: block;
     position: absolute;
     top: 30px;
-    left: 290px;
+    right: 30px; /* Adjust to make it align properly */
     width: 30px;
     cursor: pointer;
+    z-index: 102; /* Ensure it's above the menu */
   }
 
+  /* Mobile Menu Styling */
   .nav-menu {
     position: fixed;
-    width: 350px;
+    width: 250px;
     height: 100%;
-    z-index: 2;
+    z-index: 100;
     background-color: #1f0016;
     top: 0;
-    right: -350px;
+    right: -250px;
     flex-direction: column;
-    /* align-items: flex-start; */
     gap: 30px;
-    padding-top: 100px;
-    /* padding-left: 50px; */
+    padding-top: 80px;
+    transition: right 0.5s ease;
   }
 
   .nav-menu.open {
@@ -116,8 +121,13 @@
   }
 
   .nav-menu li {
-    font-size: 26px;
+    font-size: 24px;
     flex-direction: row;
+    margin: 15px 0;
+  }
+
+  .nav-menu li p {
+    padding-left: 15px; /* Add padding to align text better */
   }
 }
 

@@ -5,6 +5,8 @@ import underline from '../assets/nav_underline.svg';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import menu_open from '../assets/menu_open.svg';
 import menu_close from '../assets/menu_close.svg';
+import MagneticButton from '../common/MagneticButton'; // Import MagneticButton
+import Magnetic from '../common/Magnetic';
 
 const sections = ["home", "about", "services", "work", "contact"];
 
@@ -80,25 +82,35 @@ const Navbar = () => {
         />
 
         {sections.map((id) => (
-          <li key={id}>
-            <AnchorLink
-              className="anchor-link"
-              href={`#${id}`}
-              offset={50}
-              onClick={() => handleMenuClick(id)}
-            >
-              <p>{id === "work" ? "Portfolio" : id === "about" ? "About Me" : id.charAt(0).toUpperCase() + id.slice(1)}</p>
-              {activeMenu === id && (
-                <img src={underline} alt="underline" className="underline" />
-              )}
-            </AnchorLink>
-          </li>
-        ))}
+  <Magnetic key={id}>
+    <div className="nav-item-wrapper">
+      <li className="nav-item">
+        <AnchorLink
+          className="anchor-link"
+          href={`#${id}`}
+          offset={50}
+          onClick={() => handleMenuClick(id)}
+        >
+          <p>{id === "work" ? "Portfolio" : id === "about" ? "About Me" : id.charAt(0).toUpperCase() + id.slice(1)}</p>
+          {activeMenu === id && (
+            <img src={underline} alt="underline" className="underline" />
+          )}
+        </AnchorLink>
+      </li>
+    </div>
+  </Magnetic>
+))}
+
       </ul>
 
-      <AnchorLink href="#contact" offset={50}>
+      {/* <AnchorLink href="#contact" offset={50}>
         <button className="nav-connect">Connect With Me</button>
-      </AnchorLink>
+     </AnchorLink> */}
+      <MagneticButton backgroundColor="#455CE9">
+        <AnchorLink href="#contact" offset={50}>
+          <p> Connect With Me</p>
+        </AnchorLink>
+      </MagneticButton>
     </div>
   );
 };

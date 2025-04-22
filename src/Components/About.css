@@ -10,7 +10,6 @@
 
 .about-title{
     position: relative;
-
 }
 
 .about-title h1{
@@ -39,9 +38,28 @@
 }
 
 .model-container {
-    width: 300px;
-    height: 300px;
+    width: 320px;
+    height: 320px;
     position: relative;
+    border-radius: 10px;
+    background: radial-gradient(circle at center, rgba(185, 35, 225, 0.2) 0%, rgba(0, 0, 0, 0) 70%);
+    transition: all 0.3s ease;
+}
+
+.model-container:hover {
+    background: radial-gradient(circle at center, rgba(185, 35, 225, 0.3) 0%, rgba(0, 0, 0, 0) 80%);
+    transform: scale(1.05);
+}
+
+.avatar-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    cursor: grab;
+}
+
+.avatar-container:active {
+    cursor: grabbing;
 }
 
 .about-right{
@@ -144,8 +162,8 @@ margin-bottom: 80px;
     }
 
     .model-container {
-        width: 200px;
-        height: 200px;
+        width: 260px;
+        height: 260px;
     }
 
     .about-para{

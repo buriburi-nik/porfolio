@@ -1,113 +1,110 @@
-// src/Components/ThreeScene.jsx
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
-import { FontLoader } from 'three/examples/jsm/loaders/FontLoader';
-import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 const ThreeScene = () => {
   const mountRef = useRef(null);
 
   useEffect(() => {
+    // Scene, Camera & Renderer
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ alpha: true });
+    scene.background = new THREE.Color(0x87ceeb); // Clean sky blue, no fog
 
-    renderer.setSize(window.innerWidth > 768 ? 500 : 300, window.innerWidth > 768 ? 500 : 300);
-    renderer.setClearColor(0x000000, 0);
-    if (mountRef.current) {
-      mountRef.current.appendChild(renderer.domElement);
-    }
+    const camera = new THREE.PerspectiveCamera(60, 1, 0.1, 100);
+    camera.position.set(0, 3, 8);
 
-    // 3D text
-    const loader = new FontLoader();
-    loader.load('/fonts/helvetiker_regular.typeface.json', font => {
-      const textGeometry = new TextGeometry('Hello', {
-        font: font,
-        size: 0.5,
-        height: 0.1,
-        curveSegments: 12,
-        bevelEnabled: true,
-        bevelThickness: 0.02,
-        bevelSize: 0.02,
-        bevelOffset: 0,
-        bevelSegments: 5
-      });
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setPixelRatio(window.devicePixelRatio);
 
-      const textMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
-      const textMesh = new THREE.Mesh(textGeometry, textMaterial);
-      textMesh.position.set(-1.5, 0, 0);
-      scene.add(textMesh);
-    });
-
-    // Particles
-    const particlesGeometry = new THREE.BufferGeometry();
-    const particlesCount = 500;
-    const posArray = new Float32Array(particlesCount * 3);
-    for (let i = 0; i < particlesCount * 3; i++) {
-      posArray[i] = (Math.random() - 0.5) * 5;
-    }
-    particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-    const particlesMaterial = new THREE.PointsMaterial({
-      size: 0.02,
-      color: 0xb923e1,
-      transparent: true,
-    });
-    const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
-    scene.add(particlesMesh);
-
-    // Torus Knot
-    const geometry = new THREE.TorusKnotGeometry(1, 0.3, 64, 8, 2, 3);
-    const material = new THREE.MeshBasicMaterial({
-      color: 0xda7c25,
-      wireframe: true
-    });
-    const torusKnot = new THREE.Mesh(geometry, material);
-    scene.add(torusKnot);
-
-    camera.position.z = 5;
-
-    const handleResize = () => {
-      const width = window.innerWidth > 768 ? 500 : 300;
-      const height = window.innerWidth > 768 ? 500 : 300;
-      renderer.setSize(width, height);
-      camera.aspect = width / height;
+    // Resize logic
+    const resize = () => {
+      if (!mountRef.current) return;
+      const { clientWidth: w, clientHeight: h } = mountRef.current;
+      renderer.setSize(w, h);
+      camera.aspect = w / h;
       camera.updateProjectionMatrix();
     };
 
-    window.addEventListener('resize', handleResize);
+    mountRef.current.appendChild(renderer.domElement);
+    resize();
+    window.addEventListener('resize', resize);
+
+    // Lights
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+    const spotLight = new THREE.SpotLight(0xffffff, 0.8);
+    spotLight.position.set(5, 10, 5);
+    spotLight.castShadow = true;
+    scene.add(ambientLight, spotLight);
+
+    // Floating Island
+    const island = new THREE.Mesh(
+      new THREE.CylinderGeometry(4, 6, 1.5, 32),
+      new THREE.MeshStandardMaterial({ color: 0x8b4513 })
+    );
+    island.rotation.x = Math.PI;
+    island.position.y = -1;
+    island.receiveShadow = true;
+    scene.add(island);
+
+    // Grass
+    const grass = new THREE.Mesh(
+      new THREE.CircleGeometry(4, 32),
+      new THREE.MeshStandardMaterial({ color: 0x228b22 })
+    );
+    grass.rotation.x = -Math.PI / 2;
+    grass.position.y = -0.25;
+    scene.add(grass);
+
+    // Tree trunk
+    const trunk = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.1, 0.1, 1, 8),
+      new THREE.MeshStandardMaterial({ color: 0x8b4513 })
+    );
+    trunk.position.set(0, -0.25, 0);
+    scene.add(trunk);
+
+    // Tree leaves
+    const leaves = new THREE.Mesh(
+      new THREE.ConeGeometry(0.6, 1.5, 8),
+      new THREE.MeshStandardMaterial({ color: 0x006400 })
+    );
+    leaves.position.set(0, 0.5, 0);
+    scene.add(leaves);
+
+    // OrbitControls
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.autoRotate = true;
+    controls.autoRotateSpeed = 0.3;
+    controls.enableZoom = false;
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.05;
 
     const animate = () => {
       requestAnimationFrame(animate);
-      particlesMesh.rotation.x += 0.0005;
-      particlesMesh.rotation.y += 0.0005;
-      torusKnot.rotation.x += 0.01;
-      torusKnot.rotation.y += 0.005;
+      controls.update();
       renderer.render(scene, camera);
     };
-
     animate();
 
     return () => {
-      window.removeEventListener('resize', handleResize);
-      if (mountRef.current) {
-        mountRef.current.removeChild(renderer.domElement);
-      }
+      window.removeEventListener('resize', resize);
+      if (mountRef.current) mountRef.current.removeChild(renderer.domElement);
+      renderer.dispose();
     };
   }, []);
 
   return (
-    <div 
-      ref={mountRef} 
-      className="three-scene" 
-      style={{ 
-        position: 'absolute', 
-        top: '50%', 
-        left: '50%', 
-        transform: 'translate(-50%, -50%)',
-        zIndex: -1,
+    <div
+      ref={mountRef}
+      className="three-scene"
+      style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
         width: '100%',
         height: '100%',
-        pointerEvents: 'none'
+        pointerEvents: 'none',
+        zIndex: -1,
       }}
     />
   );
