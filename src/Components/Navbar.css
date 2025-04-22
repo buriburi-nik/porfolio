@@ -68,7 +68,7 @@
   display: none;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 768px) {
   /* Navbar Adjustments for Mobile */
   .navbar {
     padding: 10px;
@@ -127,11 +127,11 @@
   }
 
   .nav-menu li p {
-    padding-left: 15px; /* Add padding to align text better */
+    padding-left: 15px; 
   }
 }
 
-/* Underline Animation */
+
 .underline {
   width: 70px;
   height: auto;

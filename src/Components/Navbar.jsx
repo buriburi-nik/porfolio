@@ -106,11 +106,14 @@ const Navbar = () => {
       {/* <AnchorLink href="#contact" offset={50}>
         <button className="nav-connect">Connect With Me</button>
      </AnchorLink> */}
-      <MagneticButton backgroundColor="#455CE9">
+      <div className='ds'>
+        <MagneticButton backgroundColor="#455CE9">
         <AnchorLink href="#contact" offset={50}>
           <p> Connect With Me</p>
         </AnchorLink>
-      </MagneticButton>
+        </MagneticButton>
+        </div>
+ 
     </div>
   );
 };
