@@ -6,7 +6,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 1001;
+  z-index: 501;
 }
 
 .nav-logo {
@@ -16,7 +16,7 @@
 .nav-toggle-btn {
   width: 30px;
   cursor: pointer;
-  z-index: 1002;
+  z-index: 502;
 }
 
 .sidebar {
@@ -27,7 +27,7 @@
   height: 100vh;
   background-color: #1f0016;
   padding-top: 80px;
-  z-index: 1000;
+  z-index: 500;
   display: flex;
   flex-direction: column;
   padding-left: 30px;
