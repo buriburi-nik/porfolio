@@ -1,47 +1,51 @@
-import profile from '../assets/gojo.png';
-// import resume from '../assets/';
+import profile from '../assets/gojo.png'; // Profile Image
 import './Hero.css';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
-import { FaDownload } from 'react-icons/fa';
+import { FaDownload } from 'react-icons/fa'; // Download icon
 import MagneticButton from '../common/MagneticButton';
-
-
-
+ 
 const Hero = () => {
   return (
     <div id="home" className="hero">
-     
+      {/* Profile Image */}
       <img src={profile} alt="Profile" className="profile" />
 
+      {/* Heading */}
       <h1>
         <span>{`I'm Nikhil Gharat,`}</span> a Frontend Developer
       </h1>
 
+      {/* Short Description */}
       <p>
         I am passionate about building user-friendly interfaces and creating engaging
         experiences.
       </p>
 
+      {/* Actions: Buttons */}
       <div className="hero-action">
-        {/* Connect button */}
-           <MagneticButton backgroundColor="#455CE9">
-                <AnchorLink href="#contact" offset={50}>
-                  <p>Connect With Me</p>
-                </AnchorLink>
-              </MagneticButton>
+        
+        {/* Connect Button */}
+        <MagneticButton backgroundColor="#455CE9">
+          <AnchorLink href="#contact" offset={50}>
+            <p>Connect With Me</p>
+          </AnchorLink>
+        </MagneticButton>
 
-<MagneticButton
-  className="custom-resume-button gradient-resume" backgroundColor="#FF3D00"
->
-  <a
-     href="/Resume.pdf" 
-    download="Nikhil_Gharat_Resume.pdf"
-    className="resume-link"
-  >
-     <p><FaDownload style={{ marginRight: '8px' }} />
-    My Resume</p>
-  </a>
-</MagneticButton>
+        {/* Resume Button */}
+        
+        <MagneticButton className="custom-resume-button gradient-resume" backgroundColor="#FF3D00">
+          <a
+            href="/Resume.pdf" // Ensure Resume.pdf is in the public folder
+            target="_blank"
+            rel="noopener noreferrer"
+            className="resume-link"
+          >
+            <p>
+              <FaDownload style={{ marginRight: '8px' }} />
+              View Resume
+            </p>
+          </a>
+        </MagneticButton>
 
       </div>
     </div>

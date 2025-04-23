@@ -8,26 +8,19 @@ import menu_open from '../assets/menu_open.svg';
 import menu_close from '../assets/menu_close.svg';
 import MagneticButton from '../common/MagneticButton';
 import Magnetic from '../common/Magnetic';
-import AnimatedCurve from './AnimatedCurve';
 
-const sections = ['home', 'about', 'services', 'work', 'contact'];
+const sections = ['home', 'about',  'work', 'contact'];
 
 const menuSlide = {
   initial: { x: 'calc(100% + 100px)' },
-  enter: { x: '0', transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] } },
-  exit: { x: 'calc(100% + 100px)', transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: 0.2 } }
+  enter: { x: '0', transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] }},
+  exit: { x: 'calc(100% + 100px)', transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: 0.2 }}
 };
 
 const slide = {
   initial: { x: 80 },
-  enter: i => ({
-    x: 0,
-    transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: 0.05 * i }
-  }),
-  exit: i => ({
-    x: 80,
-    transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: 0.5 * i }
-  })
+  enter: i => ({ x: 0, transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: 0.05 * i }}),
+  exit: i => ({ x: 80, transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: 0.5 * i }})
 };
 
 const scale = {
@@ -35,24 +28,21 @@ const scale = {
   closed: { scale: 0, transition: { duration: 0.4 } }
 };
 
-const Navbar = () => {
+export default function Navbar() {
   const [activeMenu, setActiveMenu] = useState('home');
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isToggleClicked, setIsToggleClicked] = useState(false);
   const menuRef = useRef(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      entries => {
-        for (let entry of entries) {
-          if (entry.isIntersecting) {
-            setActiveMenu(entry.target.id);
-            break;
-          }
+    const observer = new IntersectionObserver(entries => {
+      for (let entry of entries) {
+        if (entry.isIntersecting) {
+          setActiveMenu(entry.target.id);
+          break;
         }
-      },
-      { threshold: 0.6 }
-    );
+      }
+    }, { threshold: 0.6 });
 
     sections.forEach(id => {
       const section = document.getElementById(id);
@@ -68,8 +58,8 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    const handleClickOutside = event => {
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
+    const handleClickOutside = e => {
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
         setIsSidebarOpen(false);
       }
     };
@@ -84,7 +74,6 @@ const Navbar = () => {
 
   const toggleSidebar = () => {
     if (isToggleClicked) return;
-
     setIsToggleClicked(true);
     setTimeout(() => {
       setIsSidebarOpen(!isSidebarOpen);
@@ -95,71 +84,62 @@ const Navbar = () => {
   return (
     <>
       <div className="nav-header">
-        <img src={logo} alt="Logo" className="nav-logo" draggable="false" />
+        <img src={logo} alt="Logo" className="nav-logo" />
         <img
           src={isSidebarOpen ? menu_close : menu_open}
           onClick={toggleSidebar}
           alt="Toggle Menu"
           className="nav-toggle-btn"
-          draggable="false"
         />
       </div>
 
       <AnimatePresence>
         {isSidebarOpen && (
-          <>
-            <AnimatedCurve isOpen={isSidebarOpen} />
-            <motion.aside
-              ref={menuRef}
-              className="sidebar"
-              variants={menuSlide}
-              initial="initial"
-              animate="enter"
-              exit="exit"
-            >
-              <ul className="sidebar-menu">
-                {sections.map((id, i) => (
-                  <Magnetic key={id}>
-                    <motion.li
-                      className={`nav-item ${activeMenu === id ? 'active' : ''}`}
-                      variants={slide}
-                      custom={i}
-                      initial="initial"
-                      animate="enter"
-                      exit="exit"
-                      whileHover={{ scale: 1.05, x: 10 }} // slight parallax
-                    >
-                      <AnchorLink href={`#${id}`} offset={50} onClick={() => handleMenuClick(id)}>
-                        <p>
-                          {id === 'work' ? 'Portfolio' : id === 'about' ? 'About Me' : id.charAt(0).toUpperCase() + id.slice(1)}
-                        </p>
-                        {activeMenu === id && (
-                          <motion.img
-                            src={underline}
-                            alt="underline"
-                            className="underline"
-                            layoutId="underline"
-                          />
-                        )}
-                      </AnchorLink>
-                    </motion.li>
-                  </Magnetic>
-                ))}
-              </ul>
+          <motion.aside
+            ref={menuRef}
+            className="sidebar"
+            variants={menuSlide}
+            initial="initial"
+            animate="enter"
+            exit="exit"
+          >
+            <ul className="sidebar-menu">
+              {sections.map((id, i) => (
+                <Magnetic key={id}>
+                  <motion.li
+                    className={`nav-item ${activeMenu === id ? 'active' : ''}`}
+                    variants={slide}
+                    custom={i}
+                    initial="initial"
+                    animate="enter"
+                    exit="exit"
+                  >
+                    <AnchorLink href={`#${id}`} offset={50} onClick={() => handleMenuClick(id)}>
+                      <p>{id === 'work' ? 'Portfolio' : id === 'about' ? 'About Me' : id.charAt(0).toUpperCase() + id.slice(1)}</p>
+                      {activeMenu === id && (
+                        <motion.img
+                          src={underline}
+                          alt="underline"
+                          className="underline"
+                          layoutId="underline"
+                        />
+                      )}
+                    </AnchorLink>
+                  </motion.li>
+                </Magnetic>
+              ))}
+            </ul>
 
-              <motion.div className="nav-cta" variants={scale} initial="closed" animate="open" exit="closed">
-                <MagneticButton backgroundColor="#455CE9">
-                  <AnchorLink href="#contact" offset={50}>
-                    <p>Connect With Me</p>
-                  </AnchorLink>
-                </MagneticButton>
-              </motion.div>
-            </motion.aside>
-          </>
+            <motion.div className="nav-cta" variants={scale} initial="closed" animate="open" exit="closed">
+              <MagneticButton backgroundColor="#455CE9">
+                <AnchorLink href="#contact" offset={50}>
+                  <p>Connect With Me</p>
+                </AnchorLink>
+              </MagneticButton>
+            </motion.div>
+          </motion.aside>
         )}
       </AnimatePresence>
     </>
   );
-};
-
-export default Navbar;
+}

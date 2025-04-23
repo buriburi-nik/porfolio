@@ -6,6 +6,8 @@ import u1 from '../assets/theme_pattern.svg';
 import mywork_data from '../assets/mywork_data';
 import arrow_icon from '../assets/arrow_icon.svg';
 import { X, Github, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
+import Magnetic from '../common/Magnetic';
+
 
 const Mywork = () => {
   const [visibleProjects, setVisibleProjects] = useState(3);
@@ -116,6 +118,7 @@ const Mywork = () => {
                     <span className="project-tag">+{project.technologies.length - 3}</span>
                   )}
                 </div>
+                
                 <div className="view-project-btn">
                   <span>View Project</span>
                 </div>
@@ -126,12 +129,13 @@ const Mywork = () => {
       </div>
       
       {visibleProjects < filteredProjects.length && (
-        <div className="mywork-showmore animate-btn" onClick={handleShowMore}>
-          <p>Show more</p>
-          <img src={arrow_icon} alt="" className="arrow-icon" />
-        </div>
+        <Magnetic> {/* Apply magnetic effect to the Show More button */}
+          <div className="mywork-showmore animate-btn" onClick={handleShowMore}>
+        <p>Show more</p>
+        <img src={arrow_icon} alt="" className="arrow-icon" />
+      </div>
+    </Magnetic>
       )}
-      
       {/* Project Modal */}
       {selectedProject && (
         <div className="project-modal-overlay" onClick={closeProjectModal}>
