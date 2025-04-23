@@ -103,13 +103,13 @@
 }
 
 .contact-submit{
-    border-radius: 50px;
+    /* border-radius: 50px; */
     border: none;
     color: white;
-    background: linear-gradient(256deg, #df8908 -5.09%, #b415ff 106%);
-    padding: 15px 40px;
+    background: transparent;
+    /* padding: 15px 20px; */
     font-size: 20px;
-    cursor: pointer; transition: 0.3s; margin-bottom: 50px;
+    cursor: pointer; 
 }
 
 .contact-submit:hover{
