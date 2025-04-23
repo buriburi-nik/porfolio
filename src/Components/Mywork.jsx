@@ -6,7 +6,7 @@ import u1 from '../assets/theme_pattern.svg';
 import mywork_data from '../assets/mywork_data';
 import arrow_icon from '../assets/arrow_icon.svg';
 import { X, Github, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
-import Magnetic from '../common/Magnetic';
+// import Magnetic from '../common/Magnetic';
 
 
 const Mywork = () => {
@@ -129,12 +129,10 @@ const Mywork = () => {
       </div>
       
       {visibleProjects < filteredProjects.length && (
-        <Magnetic> {/* Apply magnetic effect to the Show More button */}
           <div className="mywork-showmore animate-btn" onClick={handleShowMore}>
         <p>Show more</p>
         <img src={arrow_icon} alt="" className="arrow-icon" />
       </div>
-    </Magnetic>
       )}
       {/* Project Modal */}
       {selectedProject && (
