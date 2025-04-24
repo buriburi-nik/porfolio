@@ -30,13 +30,15 @@ const MagneticButton = ({ children, backgroundColor = '#455CE9', ...attributes }
     <Magnetic>
       <div
         className="roundedButton"
-        style={{ overflow: 'hidden' }}
+        style={{ overflow: 'hidden', position: 'relative' }}
         onMouseEnter={manageMouseEnter}
         onMouseLeave={manageMouseLeave}
         {...attributes}
       >
-        {children}
-        <div ref={circle} style={{ backgroundColor }} className="circle"></div>
+        <div className="roundedButton-content">
+          {children}
+        </div>
+        <div ref={circle} style={{ backgroundColor }} className="circle" />
       </div>
     </Magnetic>
   );

@@ -11,6 +11,7 @@
 
 .nav-logo {
   width: 140px;
+
 }
 
 .nav-toggle-btn {
@@ -71,6 +72,8 @@
   margin-top: auto;
   padding-bottom: 130px;  /* Adjust the padding here to bring it up */
   padding-right: 20px;
+  position: relative; /* creates a stacking context */
+    z-index: 15;
 }
 
 .nav-cta p {
@@ -81,4 +84,31 @@
   body {
     padding-left: 5;
   }
+}
+a {
+  position: relative;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a p {
+  position: relative;
+  z-index: 2;
+  transition: color 0.3s ease;
+  z-index: 100;
+}
+
+a:hover p {
+  color: #df8908; /* or your hover color */
+  z-index: 100;
+}
+
+.underline {
+  position: absolute;
+  bottom: -5px; /* adjust as needed */
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 1;
+  pointer-events: none;
 }

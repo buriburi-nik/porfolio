@@ -9,23 +9,44 @@ import menu_close from '../assets/menu_close.svg';
 import MagneticButton from '../common/MagneticButton';
 import Magnetic from '../common/Magnetic';
 
-const sections = ['home', 'about',  'work', 'contact'];
+const sections = ['home', 'about', 'work', 'contact'];
 
+// Faster sidebar animation
 const menuSlide = {
   initial: { x: 'calc(100% + 100px)' },
-  enter: { x: '0', transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] }},
-  exit: { x: 'calc(100% + 100px)', transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: 0.2 }}
+  enter: {
+    x: '0',
+    transition: { duration: 0.4, ease: [0.76, 0, 0.24, 1] }
+  },
+  exit: {
+    x: 'calc(100% + 100px)',
+    transition: { duration: 0.4, ease: [0.76, 0, 0.24, 1], delay: 0.1 }
+  }
 };
 
+// Faster menu item slide-in
 const slide = {
   initial: { x: 80 },
-  enter: i => ({ x: 0, transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: 0.05 * i }}),
-  exit: i => ({ x: 80, transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: 0.5 * i }})
+  enter: i => ({
+    x: 0,
+    transition: { duration: 0.3, ease: [0.76, 0, 0.24, 1], delay: 0.03 * i }
+  }),
+  exit: i => ({
+    x: 80,
+    transition: { duration: 0.3, ease: [0.76, 0, 0.24, 1], delay: 0.2 * i }
+  })
 };
 
+// Faster button scale animation
 const scale = {
-  open: { scale: 1, transition: { duration: 0.7 } },
-  closed: { scale: 0, transition: { duration: 0.4 } }
+  open: {
+    scale: 1,
+    transition: { duration: 0.3 }
+  },
+  closed: {
+    scale: 0,
+    transition: { duration: 0.2 }
+  }
 };
 
 export default function Navbar() {
@@ -35,14 +56,17 @@ export default function Navbar() {
   const menuRef = useRef(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(entries => {
-      for (let entry of entries) {
-        if (entry.isIntersecting) {
-          setActiveMenu(entry.target.id);
-          break;
+    const observer = new IntersectionObserver(
+      entries => {
+        for (let entry of entries) {
+          if (entry.isIntersecting) {
+            setActiveMenu(entry.target.id);
+            break;
+          }
         }
-      }
-    }, { threshold: 0.6 });
+      },
+      { threshold: 0.6 }
+    );
 
     sections.forEach(id => {
       const section = document.getElementById(id);
@@ -78,7 +102,7 @@ export default function Navbar() {
     setTimeout(() => {
       setIsSidebarOpen(!isSidebarOpen);
       setIsToggleClicked(false);
-    }, 300);
+    }, 200);
   };
 
   return (

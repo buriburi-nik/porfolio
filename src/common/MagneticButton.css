@@ -3,30 +3,28 @@
   padding: 12px 25px;
   border-radius: 50px;
   background: linear-gradient(267deg, #da7c25 0.36%, #b923e1);
-
   font-size: 18px;
   color: white;
   white-space: nowrap;
   cursor: pointer;
   transition: 0.3s ease;
   flex-shrink: 0;
-  border: solid 2px white; /* Remove border */
+  border: solid 2px white;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+  overflow: hidden; /* 👈 Prevent .circle from overflowing */
+  z-index: 1;
 }
 
 .roundedButton p {
   position: relative;
-  z-index: 1;
+  z-index: 10; /* 👈 Ensure it's above the circle */
   transition: color 0.4s linear;
 }
 
-.roundedButton:hover {
-  transform: scale(1.05);
-  /* background: linear-gradient(267deg, #da7c25 50%, #b923e1); */
-}
+
 
 .roundedButton:hover p {
   color: white;
