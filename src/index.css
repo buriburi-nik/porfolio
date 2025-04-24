@@ -4,7 +4,7 @@
 }
 
 body{
-    height: 100vh;
+    height: 100dvh;
     background: #161513;
     /* background-color: rgb(150, 95, 233); */
     color: rgb(255, 255, 255);
