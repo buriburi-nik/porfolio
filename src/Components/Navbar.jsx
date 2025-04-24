@@ -4,14 +4,58 @@ import { motion, AnimatePresence } from 'framer-motion';
 import logo from '../assets/logo.svg';
 import underline from '../assets/nav_underline.svg';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
-import menu_open from '../assets/menu_open.svg';
-import menu_close from '../assets/menu_close.svg';
 import MagneticButton from '../common/MagneticButton';
 import Magnetic from '../common/Magnetic';
 
+// Framer Motion Hamburger Toggle Button
+const Path = props => (
+  <motion.path
+    fill="transparent"
+    strokeWidth="3"
+    stroke="#fff"
+    strokeLinecap="round"
+    {...props}
+  />
+);
+
+function HamburgerToggle({ toggle, isOpen }) {
+  return (
+    <button
+      onClick={toggle}
+      className="hamburger-toggle"
+      aria-label="Toggle menu"
+    >
+      <svg width="28" height="28" viewBox="0 0 23 23">
+        <Path
+          variants={{
+            closed: { d: "M 2 2.5 L 20 2.5" },
+            open: { d: "M 3 16.5 L 17 2.5" }
+          }}
+          animate={isOpen ? "open" : "closed"}
+        />
+        <Path
+          d="M 2 9.423 L 20 9.423"
+          variants={{
+            closed: { opacity: 1 },
+            open: { opacity: 0 }
+          }}
+          transition={{ duration: 0.1 }}
+          animate={isOpen ? "open" : "closed"}
+        />
+        <Path
+          variants={{
+            closed: { d: "M 2 16.346 L 20 16.346" },
+            open: { d: "M 3 2.5 L 17 16.346" }
+          }}
+          animate={isOpen ? "open" : "closed"}
+        />
+      </svg>
+    </button>
+  );
+}
+
 const sections = ['home', 'about', 'work', 'contact'];
 
-// Faster sidebar animation
 const menuSlide = {
   initial: { x: 'calc(100% + 100px)' },
   enter: {
@@ -24,7 +68,6 @@ const menuSlide = {
   }
 };
 
-// Faster menu item slide-in
 const slide = {
   initial: { x: 80 },
   enter: i => ({
@@ -37,7 +80,6 @@ const slide = {
   })
 };
 
-// Faster button scale animation
 const scale = {
   open: {
     scale: 1,
@@ -96,25 +138,25 @@ export default function Navbar() {
     setIsSidebarOpen(false);
   };
 
+ 
   const toggleSidebar = () => {
-    if (isToggleClicked) return;
-    setIsToggleClicked(true);
-    setTimeout(() => {
-      setIsSidebarOpen(!isSidebarOpen);
-      setIsToggleClicked(false);
-    }, 200);
-  };
+  if (isToggleClicked) return;
+  setIsSidebarOpen(prev => !prev); 
+
+  setIsToggleClicked(true); 
+  setTimeout(() => {
+    setIsToggleClicked(false);
+  }, 500); 
+};
+
 
   return (
     <>
       <div className="nav-header">
-        <img src={logo} alt="Logo" className="nav-logo" />
-        <img
-          src={isSidebarOpen ? menu_close : menu_open}
-          onClick={toggleSidebar}
-          alt="Toggle Menu"
-          className="nav-toggle-btn"
-        />
+         <AnchorLink href="#home" offset={50} onClick={() => handleMenuClick('home')}>
+    <img src={logo} alt="Logo" className="nav-logo" />
+  </AnchorLink>
+        <HamburgerToggle toggle={toggleSidebar} isOpen={isSidebarOpen} />
       </div>
 
       <AnimatePresence>

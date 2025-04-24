@@ -29,7 +29,8 @@ const Footer = () => {
 
   return (
       <div className="footer">
-         
+               <hr className="footer-divider" />
+
       <div className="footer-top">
         <div className="footer-top-left">
           <img src={footer_logo} alt="Footer Logo" />

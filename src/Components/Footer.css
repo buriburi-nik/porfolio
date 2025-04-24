@@ -156,7 +156,10 @@
     text-align: center;
   }
 
-  .footer-top-left,
+  .footer-top-left,{
+        display: none;
+
+  }
   .footer-top-right {
     align-items: center;
   }
@@ -183,8 +186,10 @@
     gap: 20px;
   }
 
-  .footer-top-left p {
+  .footer-top-left  {
     font-size: 16px;
+        display: none;
+
   }
 
   .time {
@@ -196,7 +201,8 @@
   }
 
   .footer-top-left img {
-    max-width: 140px;
+    max-width: 140px;    display: none;
+
   }
 
   .social-link {
