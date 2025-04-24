@@ -177,7 +177,7 @@
     .contact {
         margin: 40px 40px;
     }
-
+.contact-title img {    width: 130px;}
     .contact-section {
         flex-direction: column;
         gap: 60px;
