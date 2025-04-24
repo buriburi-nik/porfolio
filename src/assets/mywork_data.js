@@ -88,7 +88,7 @@ demoLink: "https://basic-e-commerce-five.vercel.app/"
         w_img: project41_img,
         images: [project41_img, project42_img, project43_img],
         description: "A mobile-first application for tracking workouts and nutrition with progress visualization.",
-        category: "Mobile App",
+        category: "Web App",
         technologies: ["React Native", "Redux", "Chart.js"],
         features: [
             "Workout plan creator",
@@ -124,7 +124,7 @@ w_name: "Bank of Reacts",
 w_img: project6_img, 
 images: [project6_img], 
 description: "An interactive loan calculator built with React, featuring real-time monthly payment and interest breakdown with visual charts.",
-category: "Web App",
+category:  "Mobile App",
 technologies: ["React.js", "JavaScript", "CSS"],
 features: [
     "Dynamic loan calculation with sliders",
