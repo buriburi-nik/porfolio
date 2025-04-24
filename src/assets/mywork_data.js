@@ -39,7 +39,7 @@ features: [
     "Mobile-friendly design"
 ],
 githubLink: "https://github.com/buriburi-nik/mct",
-demoLink: "https://demo-ecommerce-dashboard.netlify.app"
+demoLink: "https://mct-5fcl.vercel.app/"
 
     },
     {
