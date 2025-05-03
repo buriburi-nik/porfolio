@@ -9,6 +9,8 @@ import Footer from "./Components/Footer";
 import Preloader from './Components/Preloader'; 
 import './Preloader.css'; 
 import './animation.css'; // Import our new animations
+import 'font-awesome/css/font-awesome.min.css';
+
 
 const App = () => {
     const [showPreloader, setShowPreloader] = useState(true);
