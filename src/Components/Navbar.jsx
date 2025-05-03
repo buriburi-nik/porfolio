@@ -7,53 +7,6 @@ import AnchorLink from 'react-anchor-link-smooth-scroll';
 import MagneticButton from '../common/MagneticButton';
 import Magnetic from '../common/Magnetic';
 
-// Framer Motion Hamburger Toggle Button
-const Path = props => (
-  <motion.path
-    fill="transparent"
-    strokeWidth="3"
-    stroke="#fff"
-    strokeLinecap="round"
-    {...props}
-  />
-);
-
-function HamburgerToggle({ toggle, isOpen }) {
-  return (
-    <button
-      onClick={toggle}
-      className="hamburger-toggle"
-      aria-label="Toggle menu"
-    >
-      <svg width="28" height="28" viewBox="0 0 23 23">
-        <Path
-          variants={{
-            closed: { d: "M 2 2.5 L 20 2.5" },
-            open: { d: "M 3 16.5 L 17 2.5" }
-          }}
-          animate={isOpen ? "open" : "closed"}
-        />
-        <Path
-          d="M 2 9.423 L 20 9.423"
-          variants={{
-            closed: { opacity: 1 },
-            open: { opacity: 0 }
-          }}
-          transition={{ duration: 0.1 }}
-          animate={isOpen ? "open" : "closed"}
-        />
-        <Path
-          variants={{
-            closed: { d: "M 2 16.346 L 20 16.346" },
-            open: { d: "M 3 2.5 L 17 16.346" }
-          }}
-          animate={isOpen ? "open" : "closed"}
-        />
-      </svg>
-    </button>
-  );
-}
-
 const sections = ['home', 'about', 'work', 'contact'];
 
 const menuSlide = {
@@ -91,10 +44,37 @@ const scale = {
   }
 };
 
+function HamburgerToggle({ toggle, scrolled }) {
+  return (
+    <Magnetic>
+      <button
+        onClick={toggle}
+        className="hamburger-toggle"
+        aria-label="Toggle menu"
+      >
+        <svg
+          width="28"
+          height="28"
+          viewBox="0 0 23 23"
+          fill="none"
+          stroke={scrolled ? "#00ffd5" : "white"}
+          strokeWidth="2"
+          strokeLinecap="round"
+        >
+          <path d="M 2 2.5 L 20 2.5" />
+          <path d="M 2 9.423 L 20 9.423" />
+          <path d="M 2 16.346 L 20 16.346" />
+        </svg>
+      </button>
+    </Magnetic>
+  );
+}
+
 export default function Navbar() {
   const [activeMenu, setActiveMenu] = useState('home');
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isToggleClicked, setIsToggleClicked] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const menuRef = useRef(null);
 
   useEffect(() => {
@@ -133,30 +113,33 @@ export default function Navbar() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const handleMenuClick = id => {
     setActiveMenu(id);
     setIsSidebarOpen(false);
   };
 
- 
   const toggleSidebar = () => {
-  if (isToggleClicked) return;
-  setIsSidebarOpen(prev => !prev); 
-
-  setIsToggleClicked(true); 
-  setTimeout(() => {
-    setIsToggleClicked(false);
-  }, 500); 
-};
-
+    if (isToggleClicked) return;
+    setIsSidebarOpen(prev => !prev);
+    setIsToggleClicked(true);
+    setTimeout(() => setIsToggleClicked(false), 500);
+  };
 
   return (
     <>
-      <div className="nav-header">
-         <AnchorLink href="#home" offset={50} onClick={() => handleMenuClick('home')}>
-    <img src={logo} alt="Logo" className="nav-logo" />
-  </AnchorLink>
-        <HamburgerToggle toggle={toggleSidebar} isOpen={isSidebarOpen} />
+      <div className={`nav-header ${scrolled ? 'scrolled' : ''}`}>
+        <AnchorLink href="#home" offset={50} onClick={() => handleMenuClick('home')}>
+          <img src={logo} alt="Logo" className="nav-logo" />
+        </AnchorLink>
+        <HamburgerToggle toggle={toggleSidebar} scrolled={scrolled} />
       </div>
 
       <AnimatePresence>
