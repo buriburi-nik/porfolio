@@ -63,7 +63,7 @@
 .filter-btn {
     background: transparent;
     border: 2px solid rgba(255, 255, 255, 0.3);
-    color: white;
+    color : var(--text-color);
     padding: 8px 20px;
     border-radius: 30px;
     cursor: pointer;
@@ -85,13 +85,12 @@
     z-index: -1;
    /* background: var(--accent-gradient); */
    
-   background: linear-gradient(90deg, rgba(255, 0, 255, 0.8) 0%, rgba(0, 255, 255, 0.8) 100%);
-
+   background: var(--accent-gradient);
 
 }
 
 .filter-btn:hover {
-    border-color: #ff00ff;
+    border-color: var(--text-color);
     transform: translateY(-3px);
 }
 
@@ -100,14 +99,13 @@
 }
 
 .filter-btn.active {
-   /* background: var(--accent-gradient); */
    
-   background: linear-gradient(90deg, rgba(255, 0, 255, 0.8) 0%, rgba(0, 255, 255, 0.8) 100%);
+   background: var(--accent-gradient);
 
     border-color: transparent;
-    color: #000;
+    /* color: #000; */
     font-weight: 600;
-    box-shadow: 0 5px 15px rgba(255, 0, 255, 0.3);
+    box-shadow: 0 5px 15px var(--accent-gradient);
 }
 
 /* Project grid layout */
@@ -165,7 +163,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.8);
+    background: var(--project-overlay);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -181,7 +179,7 @@
 }
 
 .project-overlay h3 {
-    color: #fff;
+    /* color: #fff; */
     font-size: 24px;
     margin-bottom: 10px;
     transform: translateY(-20px);
@@ -193,7 +191,7 @@
 }
 
 .project-overlay p {
-    color: #ccc;
+    /* color: #ccc; */
     font-size: 16px;
     margin-bottom: 15px;
     transform: translateY(20px);
@@ -224,17 +222,16 @@
 
 .project-tag {
     background: rgba(255, 0, 255, 0.3);
-    color: #fff;
     padding: 5px 10px;
     border-radius: 20px;
     font-size: 12px;
 }
 
 .view-project-btn {
-/* background: var(--accent-gradient); */
 
-background: linear-gradient(90deg, rgba(255, 0, 255, 0.8) 0%, rgba(0, 255, 255, 0.8) 100%);
-   color: white;
+background: gray;
+
+   /* color: white; */
     padding: 8px 20px;
     border-radius: 30px;
     margin-top: 10px;
@@ -249,7 +246,7 @@ background: linear-gradient(90deg, rgba(255, 0, 255, 0.8) 0%, rgba(0, 255, 255, 
 }
 
 .view-project-btn:hover {
-    background: linear-gradient(90deg, rgba(255, 0, 255, 0.8) 0%, rgba(0, 255, 255, 0.8) 100%);
+    background: var(--accent-gradient);
 }
 
 /* Show more button */
@@ -257,7 +254,7 @@ background: linear-gradient(90deg, rgba(255, 0, 255, 0.8) 0%, rgba(0, 255, 255, 
     display: flex;
     gap: 15px;
     border-radius: 50px;
-    border: 2px solid white;
+    border: 2px solid var(--border-color);
     padding: 15px 40px;
     font-size: 22px;
     font-weight: 500;
@@ -288,9 +285,9 @@ background: linear-gradient(90deg, rgba(255, 0, 255, 0.8) 0%, rgba(0, 255, 255, 
 
 .mywork-showmore:hover {
     gap: 30px;
-    color: white;
-    border-color: #df6adf;
-    box-shadow: 0 5px 15px rgba(255, 0, 255, 0.3);
+    /* color: white */
+    border-color: var(--text-color);
+    box-shadow: 0 5px 15px var(--border-color);
 }
 
 .mywork-showmore:hover::before {
@@ -300,7 +297,9 @@ background: linear-gradient(90deg, rgba(255, 0, 255, 0.8) 0%, rgba(0, 255, 255, 
 .arrow-icon {
     transition: transform 0.6s ease;
 }
-
+.arrow-icon {
+    fill: #ff6347; 
+    stroke: #2a2a2a; }
 .mywork-showmore:hover .arrow-icon {
     transform: translateX(5px);
 }
@@ -321,7 +320,7 @@ background: linear-gradient(90deg, rgba(255, 0, 255, 0.8) 0%, rgba(0, 255, 255, 
 }
 
 .project-modal {
-    background: #121212;
+    background:var(--background-color);
     border-radius: 12px;
     width: 90%;
     max-width: 800px;
@@ -364,7 +363,7 @@ background: linear-gradient(90deg, rgba(255, 0, 255, 0.8) 0%, rgba(0, 255, 255, 
 }
 
 .close-modal:hover {
-    background: rgba(255, 0, 255, 0.5);
+    background: var(--divider-gradient);
     transform: rotate(90deg);
 }
 
@@ -422,7 +421,7 @@ background: linear-gradient(90deg, rgba(255, 0, 255, 0.8) 0%, rgba(0, 255, 255, 
 }
 
 .carousel-nav:hover {
-    background: rgba(255, 0, 255, 0.7);
+    background: var(--accent-gradient);
 }
 
 .carousel-indicators {
@@ -439,13 +438,13 @@ background: linear-gradient(90deg, rgba(255, 0, 255, 0.8) 0%, rgba(0, 255, 255, 
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.5);
+    background: var(--text-color);
     cursor: pointer;
     transition: transform 0.3s ease, background 0.3s ease;
 }
 
 .indicator.active {
-    background: #ff00ff;
+    background: var(--divider-gradient);
     transform: scale(1.2);
 }
 
@@ -466,16 +465,16 @@ background: linear-gradient(90deg, rgba(255, 0, 255, 0.8) 0%, rgba(0, 255, 255, 
 
 .modal-header h2 {
     font-size: 28px;
-    color: #fff;
+    /* color: #fff; */
     margin: 0;
 }
 
 .project-category {
-   /* background: var(--accent-gradient); */
+   background: var(--accent-gradient);
    
-   background: linear-gradient(90deg, rgba(255, 0, 255, 0.8) 0%, rgba(0, 255, 255, 0.8) 100%);
 
-    color: #fff;
+
+    /* color: #fff; */
     padding: 5px 12px;
     border-radius: 20px;
     font-size: 14px;
@@ -484,9 +483,9 @@ background: linear-gradient(90deg, rgba(255, 0, 255, 0.8) 0%, rgba(0, 255, 255, 
 .project-description {
     font-size: 16px;
     line-height: 1.6;
-    color: #ccc;
+    /* color: #ccc; */
     margin-bottom: 25px;
-    border-left: 3px solid #ff00ff;
+    border-left: 3px solid var(--accent-gradient);
     padding-left: 15px;
 }
 
@@ -497,7 +496,7 @@ background: linear-gradient(90deg, rgba(255, 0, 255, 0.8) 0%, rgba(0, 255, 255, 
 .project-tech-stack h3, .project-features h3 {
     font-size: 20px;
     margin-bottom: 15px;
-    color: #fff;
+    /* color: #fff; */
     display: inline-block;
     position: relative;
 }
@@ -509,7 +508,7 @@ background: linear-gradient(90deg, rgba(255, 0, 255, 0.8) 0%, rgba(0, 255, 255, 
     left: 0;
     width: 50%;
     height: 2px;
-    background: linear-gradient(90deg, #d5a534 0%, transparent 100%);
+    background: var(--accent-gradient);
 }
 
 .tech-tags {
@@ -519,8 +518,8 @@ background: linear-gradient(90deg, rgba(255, 0, 255, 0.8) 0%, rgba(0, 255, 255, 
 }
 
 .tech-tag {
-    background: linear-gradient(90deg, rgba(255, 0, 255, 0.2) 0%, rgba(0, 255, 255, 0.2) 100%);
-    color: #fff;
+    background: var(--accent-gradient);
+    /* color: #fff; */
     padding: 6px 12px;
     border-radius: 20px;
     font-size: 14px;
@@ -529,7 +528,7 @@ background: linear-gradient(90deg, rgba(255, 0, 255, 0.8) 0%, rgba(0, 255, 255, 
 
 .tech-tag:hover {
     transform: translateY(-3px);
-    background: linear-gradient(90deg, rgba(255, 0, 255, 0.4) 0%, rgba(0, 255, 255, 0.4) 100%);
+    background: var(--divider-gradient);
 }
 
 .features-list {
@@ -541,18 +540,18 @@ background: linear-gradient(90deg, rgba(255, 0, 255, 0.8) 0%, rgba(0, 255, 255, 
     position: relative;
     padding-left: 25px;
     margin-bottom: 12px;
-    color: #ccc;
+    /* color: #ccc; */
     transition: transform 0.3s ease;
 }
 
 .feature-item:hover {
     transform: translateX(5px);
-    color: #fff;
+    /* color: #fff; */
 }
 
 .feature-item:before {
     content: "•";
-    color: #ff00ff;
+    color: var(--background-color);
     position: absolute;
     left: 0;
     font-size: 20px;
@@ -571,7 +570,8 @@ background: linear-gradient(90deg, rgba(255, 0, 255, 0.8) 0%, rgba(0, 255, 255, 
     padding: 10px 20px;
     border-radius: 6px;
     text-decoration: none;
-    color: #fff;
+    /* color: #fff; */
+    color : var(--text-color);
     font-weight: 500;
     transition: all 0.3s ease;
 }
@@ -582,7 +582,7 @@ background: linear-gradient(90deg, rgba(255, 0, 255, 0.8) 0%, rgba(0, 255, 255, 
 }
 
 .demo-link {
-    background: linear-gradient(90deg, rgba(255, 0, 255, 0.6) 0%, rgba(0, 255, 255, 0.6) 100%);
+    background: var(--accent-gradient);
 }
 
 .project-link:hover {
@@ -596,7 +596,7 @@ background: linear-gradient(90deg, rgba(255, 0, 255, 0.8) 0%, rgba(0, 255, 255, 
 }
 
 .demo-link:hover {
-    background: linear-gradient(90deg, rgba(255, 0, 255, 0.8) 0%, rgba(0, 255, 255, 0.8) 100%);
+    background: var(--divider-gradient);
 }
 
 /* Animation keyframes */

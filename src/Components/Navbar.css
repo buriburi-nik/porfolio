@@ -14,8 +14,9 @@
 
 }
 
+
 .hamburger-toggle svg {
-  stroke: white;
+  stroke: var(--svg-color);
 }
 
 
@@ -55,7 +56,7 @@
   right: 0;
   width: 260px;
   height: 100vh;
-  background-color: #02102b;
+  background-color: var(--sidebar-color);
   padding-top: 80px;
   z-index: 500;
   display: flex;

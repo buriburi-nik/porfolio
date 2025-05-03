@@ -71,10 +71,12 @@
 .footer-social {
   display: flex;
   gap: 25px;
+  color: var(--text-color);
 }
 
 .social-link {
   /* color: #ffffff; */
+  color: var(--text-color);
   text-decoration: none;
   font-size: 18px;
   position: relative;

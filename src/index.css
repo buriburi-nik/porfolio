@@ -1,4 +1,4 @@
-:root {
+/* :root {
     --accent-gradient: linear-gradient(267deg, #654ea3, #eaafc8);
   }
   
@@ -22,4 +22,59 @@ body{
 
     color: rgb(255, 255, 255);
     font-family: 'outfit';
+} */
+
+
+  
+*{
+    margin: 0;
+    padding: 0;
 }
+:root {
+    --background-color: #ffffff;
+    --text-color: #000000;
+    --accent-gradient: linear-gradient(267deg, #654ea3, #eaafc8);
+    --divider-gradient: linear-gradient(267deg, #ff87c3, #654ea3);
+    --svg-color: #080707;
+    --border-color: white;
+    --special: linear-gradient(267deg, #654ea3, #eaafc8);
+    --project-overlay : rgba(255, 251, 251, 0.9);
+    --sidebar-color : #02102b;
+  }
+  
+  [data-theme='dark'] {
+    --background-color: #1a1a1a;
+    --text-color: #e2dddd;
+    --accent-gradient: linear-gradient(267deg, #654ea3, #eaafc8);
+    --divider-gradient: linear-gradient(267deg, #ff87c3, #654ea3);
+    --svg-color: #fff; 
+    --special: transparent;
+    --project-overlay : rgba(0, 0, 0, 0.8);
+    --sidebar-color : #02102b;
+  }
+  
+  [data-theme='light'] {
+    --background-color: #DDDDDD;
+    --text-color: #1a1a1a;
+    --accent-gradient: linear-gradient(267deg, #F5CB43,#ff87c3);
+    --divider-gradient: linear-gradient(267deg,#ff87c3, #F5CB43);
+    --border-color: rgb(9, 9, 9);
+    --sidebar-color :#7E60AA;
+  }
+  
+  [data-theme='pastel'] {
+    --background-color: #f1f0e7; /* A slightly brighter soft off-white for better contrast */
+    --text-color: #2a2a2a; 
+    --accent-gradient: linear-gradient(267deg, #ffb6a1, #f68a6e); 
+    --divider-gradient: linear-gradient(267deg, #ffb3c6, #f77964); 
+    --border-color: #1a1a1a; 
+    --stroke: #333; 
+    --sidebar-color : #F5CB43;
+  }
+  
+  body {
+    background: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Outfit', sans-serif;
+  }
+  

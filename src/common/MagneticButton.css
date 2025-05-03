@@ -11,12 +11,12 @@
   cursor: pointer;
   transition: 0.3s ease;
   flex-shrink: 0;
-  border: solid 2px white;
+  border: solid 2px var(--border-color);
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  overflow: hidden; /* 👈 Prevent .circle from overflowing */
+  overflow: hidden; 
   z-index: 1;
 }
 
