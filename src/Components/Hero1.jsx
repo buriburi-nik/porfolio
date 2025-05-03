@@ -33,7 +33,7 @@ const Hero = () => {
 
         {/* Resume Button */}
         
-        <MagneticButton className="custom-resume-button gradient-resume" backgroundColor="#FF3D00">
+        <MagneticButton className="custom-resume-button gradient-resume" backgroundColor="#ffc857">
           <a
             href="/Resume.pdf" // Ensure Resume.pdf is in the public folder
             target="_blank"

@@ -43,12 +43,12 @@
   height: 320px;
   position: relative;
   border-radius: 10px;
-  background: radial-gradient(circle at center, rgba(185, 35, 225, 0.2) 0%, rgba(0, 0, 0, 0) 70%);
+  background: radial-gradient(circle at center, rgba(198, 0, 148, 0.2) 0%, rgba(0, 0, 0, 0) 70%);
   transition: all 0.3s ease;
 }
 
 .model-container:hover {
-  background: radial-gradient(circle at center, rgba(185, 35, 225, 0.3) 0%, rgba(0, 0, 0, 0) 80%);
+  background: radial-gradient(circle at center, rgba(163, 6, 253, 0.3) 0%, rgba(0, 0, 0, 0) 80%);
   transform: scale(1.05);
 }
 
@@ -92,7 +92,8 @@
   border: none;
   height: 8px;
   border-radius: 50px;
-  background: linear-gradient(267deg, #da7c25 0.36%, #b923e1);
+ background: var(--accent-gradient);
+
 }
 
 /* Tooltip Styling */
@@ -128,7 +129,8 @@
   border: none;
   height: 8px;
   border-radius: 50px;
-  background: linear-gradient(267deg, #da7c25 0.36%, #b923e1);
+ background: var(--accent-gradient);
+
   width: 100%; /* Add this line */
 }
 
@@ -146,7 +148,7 @@
   background: linear-gradient(145deg, #1f1f1f, #2c2c2c);
   border-radius: 20px;
   padding: 30px 50px;
-  box-shadow: 0 0 25px rgba(185, 35, 225, 0.4);
+  box-shadow: 0 0 25px rgba(194, 92, 223, 0.4);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
   min-width: 200px;
@@ -162,7 +164,9 @@
   font-size: 60px;
   font-weight: 600;
   color: white;
-  background: linear-gradient(267deg, #da7c25, #b923e1);
+  /* background: linear-gradient(267deg, #da7c25, #b923e1); */
+   background: var(--accent-gradient);
+
   background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;

@@ -16,6 +16,7 @@
     margin-top: -70px;
     position: relative; /* For proper stacking context */
     overflow: hidden;
+
 }
 
 /* 3D Container */
@@ -33,6 +34,7 @@
     margin-top: 150px;
     position: relative;
     z-index: 2; /* Ensure the profile image is above the 3D scene */
+    border: 4px solid 	#654ea3;
 }
 
 /* Heading */
@@ -47,7 +49,9 @@
 
 /* Gradient Text */
 .hero h1 span {
-    background: linear-gradient(267deg, #da7c25 0.36%, #b923e1);
+   background: var(--accent-gradient);
+
+
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

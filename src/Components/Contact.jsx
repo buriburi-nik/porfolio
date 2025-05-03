@@ -106,9 +106,9 @@ const Contact = () => {
             required
           />
           
-          <MagneticButton className="custom-resume-button gradient-resume" backgroundColor="#FF3D00">
+          <MagneticButton className="custom-resume-button gradient-resume" backgroundColor="#ffc857">
             <button type="submit" className="contact-submit">
-              <p>Submit Now</p>
+              Submit Now
             </button>
           </MagneticButton>
         </form>

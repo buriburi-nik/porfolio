@@ -1,3 +1,16 @@
+:root {
+    --accent-gradient: linear-gradient(267deg, #654ea3, #eaafc8);
+  }
+  
+  [data-theme='light'] {
+    --accent-gradient: linear-gradient(267deg, #654ea3, #ffb3d1);
+  }
+  
+  [data-theme='dark'] {
+    --accent-gradient: linear-gradient(267deg, #654ea3, #eaafc8);
+  }
+  
+
 *{
     margin: 0;
     padding: 0;
@@ -5,8 +18,8 @@
 
 body{
     height: 100dvh;
-    background: #161513;
-    /* background-color: rgb(150, 95, 233); */
+    background: #1a1a1a;
+
     color: rgb(255, 255, 255);
     font-family: 'outfit';
 }

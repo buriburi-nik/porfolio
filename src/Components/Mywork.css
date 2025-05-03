@@ -81,9 +81,13 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(267deg, #da7d25a3, #b823e17c);
     transition: all 0.4s ease;
     z-index: -1;
+   /* background: var(--accent-gradient); */
+   
+   background: linear-gradient(90deg, rgba(255, 0, 255, 0.8) 0%, rgba(0, 255, 255, 0.8) 100%);
+
+
 }
 
 .filter-btn:hover {
@@ -96,7 +100,10 @@
 }
 
 .filter-btn.active {
-    background: linear-gradient(267deg, #da7c25, #b923e1);
+   /* background: var(--accent-gradient); */
+   
+   background: linear-gradient(90deg, rgba(255, 0, 255, 0.8) 0%, rgba(0, 255, 255, 0.8) 100%);
+
     border-color: transparent;
     color: #000;
     font-weight: 600;
@@ -224,7 +231,9 @@
 }
 
 .view-project-btn {
-background: linear-gradient(267deg, #da7c25, #b923e1); 
+/* background: var(--accent-gradient); */
+
+background: linear-gradient(90deg, rgba(255, 0, 255, 0.8) 0%, rgba(0, 255, 255, 0.8) 100%);
    color: white;
     padding: 8px 20px;
     border-radius: 30px;
@@ -280,7 +289,7 @@ background: linear-gradient(267deg, #da7c25, #b923e1);
 .mywork-showmore:hover {
     gap: 30px;
     color: white;
-    border-color: #ff00ff;
+    border-color: #df6adf;
     box-shadow: 0 5px 15px rgba(255, 0, 255, 0.3);
 }
 
@@ -462,7 +471,10 @@ background: linear-gradient(267deg, #da7c25, #b923e1);
 }
 
 .project-category {
-    background: linear-gradient(267deg, #da7c25, #b923e1);
+   /* background: var(--accent-gradient); */
+   
+   background: linear-gradient(90deg, rgba(255, 0, 255, 0.8) 0%, rgba(0, 255, 255, 0.8) 100%);
+
     color: #fff;
     padding: 5px 12px;
     border-radius: 20px;
