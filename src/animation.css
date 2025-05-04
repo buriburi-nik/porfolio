@@ -145,3 +145,33 @@
 }
 
 
+.wave-animated {
+  animation: waveAnimation 6s ease-in-out infinite;
+}
+
+.wave-animated.scrolled {
+  animation: waveAnimationScrolled 6s ease-in-out infinite;
+}
+@keyframes waveAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes waveAnimationScrolled {
+  0% {
+    background-position: 100% 50%;
+  }
+  50% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
