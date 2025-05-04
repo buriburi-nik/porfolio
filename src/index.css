@@ -21,21 +21,41 @@
     --background-color: #1a1a1a;
     --text-color: #e2dddd;
     --accent-gradient: linear-gradient(267deg, #654ea3, #eaafc8);
-    --divider-gradient: linear-gradient(267deg, #ff87c3, #654ea3);
+    --divider-gradient: linear-gradient(
+      267deg,
+      #654ea3,     /* Deep purple */
+      #8b4bbf,     /* Medium purple */
+      #a66cbf,     /* Lighter purple */
+      #eaafc8,     /* Soft pink */
+      #f2d1e1,     /* Light pink */
+      #ffe6f0      /* Very light pastel pink */
+    );
+         --svg-color: #fff; 
     --svg-color: #fff; 
     --special: transparent;
     --project-overlay : rgba(0, 0, 0, 0.8);
-    --sidebar-color : #02102b;
-  }
+    --sidebar-color : #02102b;  }
   
   [data-theme='light'] {
     --background-color: 		#A8DADC;
     --text-color:  #1D3557;
     --accent-gradient: linear-gradient(267deg, #457B9D, #1D3557);
-    --divider-gradient: linear-gradient(267deg,#ca79e3, #F26430);
-    --border-color: rgb(9, 9, 9);
+    --divider-gradient: linear-gradient(
+      267deg,
+      #ca79e3,       /* Purple */
+      #d77cd8,       /* Light purple-pink */
+      #ec88b5,       /* Soft pink */
+      #f6a974,       /* Peach */
+      #f9844a,       /* Vibrant orange */
+      #F26430        /* Deep orange */
+
+    );
+    --special: linear-gradient(267deg, #3b7cd7, #30bae0);
+
+        --border-color: rgb(9, 9, 9);
     --sidebar-color :		#d28269;
-    --project-overlay : rgba(0, 0, 0, 0.8);
+    --project-overlay : rgba(255, 255, 255, 0.8);    --svg-color: #fff; 
+
 
   }
 
@@ -44,8 +64,19 @@
           --background-color:	#f1f0e7; /* A slightly brighter soft off-white for better contrast */
           --text-color: #000000; 
           --accent-gradient: linear-gradient(90deg, #f5896b, #f077e8); 
-          --divider-gradient: linear-gradient(90deg, #3be0bf, #c2129f); 
-          --border-color: #1a1a1a; 
+          --divider-gradient: linear-gradient(
+            90deg,
+            #3be0bf,     /* Teal */
+            #2f9e89,     /* Muted teal */
+            #5d87a8,     /* Soft blue-grey */
+            #b56db9,     /* Soft lavender */
+            #e087c2,     /* Light pink lavender */
+            #c2129f      /* Deep magenta */
+          );
+          --special: linear-gradient(267deg, #79e238, #f369a3);
+
+          
+                    --border-color: #1a1a1a; 
           --stroke: #333; 
           --sidebar-color : 	#A8DADC;
           --project-overlay : rgba(255, 255, 255, 0.674);
