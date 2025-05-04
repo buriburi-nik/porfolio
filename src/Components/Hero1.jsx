@@ -17,8 +17,7 @@ const Hero = () => {
 
       {/* Short Description */}
       <p>
-        I am passionate about building user-friendly interfaces and creating engaging
-        experiences.
+      I design intuitive interfaces and immersive experiences that draw users in—where every detail is deliberate, and every interaction invites exploration.
       </p>
 
       {/* Actions: Buttons */}
@@ -33,7 +32,7 @@ const Hero = () => {
 
         {/* Resume Button */}
         
-        <MagneticButton className="custom-resume-button gradient-resume" backgroundColor="#ffc857">
+        <MagneticButton className="custom-resume-button gradient-resume" backgroundColor="#ffc857 ">
           <a
             href="/Resume.pdf" // Ensure Resume.pdf is in the public folder
             target="_blank"

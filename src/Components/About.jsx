@@ -49,10 +49,8 @@ const About = () => {
         <div className="about-right">
           <div className="about-para">
             <p>
-              I am a passionate fresher with a strong foundation in software
-              engineering and front-end development. Although I'm just starting
-              my career, my enthusiasm for technology drives me to continuously
-              learn and grow.
+              Hello, I'm a front-end developer with a foundation in software engineering and a fascination for intuitive design.
+Though early in my career, I approach every project with curiosity and a drive to create meaningful digital experiences. I believe the best interfaces aren’t just seen—they’re felt. My mission is to design with intent, develop with precision, and always keep the user at the center.
             </p>
             <p>
               I'm a creative, inquisitive problem-solver seeking new opportunities
@@ -75,11 +73,11 @@ const About = () => {
       
       <div className="about-achievements">
         <div className="about-achievenment glowing-card">
-          <h1>FRESHER</h1>
+          <h1>EMERGENT</h1>
         </div>
         <hr />
         <div className="about-achievenment glowing-card">
-          <h1 ref={(el) => (countersRef.current[0] = el)} data-target="6">0</h1>
+          <h1 ref={(el) => (countersRef.current[0] = el)} data-target="6">+6</h1>
           <p>PROJECTS COMPLETED</p>
         </div>
         <hr />
