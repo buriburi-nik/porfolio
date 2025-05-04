@@ -2,7 +2,7 @@ import './Contact.css';
 import u1 from '../assets/theme_pattern.svg';
 import mail from '../assets/mail_icon.svg';
 import location from '../assets/location_icon.svg';
-import call from '../assets/call_icon.svg';
+// import call from '../assets/call_icon.svg';
 import { useState } from 'react';
 import MagneticButton from '../common/MagneticButton';
 import Magnetic from '../common/Magnetic';
@@ -75,12 +75,12 @@ const Contact = () => {
         </div>
       </Magnetic>
 
-      <Magnetic>
+      {/* <Magnetic>
         <div className="contact-detail">
           <img src={call} alt="Call Icon" />
           <p>7378633615</p>
         </div>
-      </Magnetic>
+      </Magnetic> */}
 
       <Magnetic>
         <div className="contact-detail">

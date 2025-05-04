@@ -26,6 +26,10 @@
   max-width: 120px;
   height: auto;
 }
+.logo-footer {
+  color: black;
+}
+
 
 .footer-top-left p {
   font-size: 20px;

@@ -1,28 +1,3 @@
-/* :root {
-    --accent-gradient: linear-gradient(267deg, #654ea3, #eaafc8);
-  }
-  
-  [data-theme='light'] {
-    --accent-gradient: linear-gradient(267deg, #654ea3, #ffb3d1);
-  }
-  
-  [data-theme='dark'] {
-    --accent-gradient: linear-gradient(267deg, #654ea3, #eaafc8);
-  }
-  
-
-*{
-    margin: 0;
-    padding: 0;
-}
-
-body{
-    height: 100dvh;
-    background: #1a1a1a;
-
-    color: rgb(255, 255, 255);
-    font-family: 'outfit';
-} */
 
 
   
@@ -54,38 +29,25 @@ body{
   }
   
   [data-theme='light'] {
-    --background-color: #DDDDDD;
-    --text-color: #1a1a1a;
-    --accent-gradient: linear-gradient(267deg, #F5CB43,#ff87c3);
-    --divider-gradient: linear-gradient(267deg,#ff87c3, #F5CB43);
+    --background-color: 		#A8DADC;
+    --text-color:  #1D3557;
+    --accent-gradient: linear-gradient(267deg, #457B9D, #1D3557);
+    --divider-gradient: linear-gradient(267deg,#ca79e3, #F26430);
     --border-color: rgb(9, 9, 9);
-    --sidebar-color :#7E60AA;
+    --sidebar-color :		#d28269;
+    --project-overlay : rgba(0, 0, 0, 0.8);
+
   }
-/*   
-  [data-theme='pastel'] {
-        --background-color: #F8ECBC; 
-        --text-color: #294912;        
-      
-        --accent-gradient:  linear-gradient(270deg, #A1A67D,#CA643C); 
-        --divider-gradient: linear-gradient(267deg, #ffcc00, #dce1ea); 
-      
-        
-        --border-color: #1a1a1a;  
-        --stroke: #333;           
-      
-        --sidebar-color: #ebd26d;
-        --special: #ffe252;    
-        --project-overlay : rgba(240, 234, 234, 0.9);
-        } */
 
         [data-theme='pastel'] {
-          --background-color: #f1f0e7; /* A slightly brighter soft off-white for better contrast */
+          /* #f1f0e7 */
+          --background-color:	#f1f0e7; /* A slightly brighter soft off-white for better contrast */
           --text-color: #000000; 
-          --accent-gradient: linear-gradient(90deg, #ffb6a1, #f077e8); 
-          --divider-gradient: linear-gradient(90deg, #b3fff0, #d34bb8); 
+          --accent-gradient: linear-gradient(90deg, #f5896b, #f077e8); 
+          --divider-gradient: linear-gradient(90deg, #3be0bf, #c2129f); 
           --border-color: #1a1a1a; 
           --stroke: #333; 
-          --sidebar-color : #77a4db;
+          --sidebar-color : 	#A8DADC;
           --project-overlay : rgba(255, 255, 255, 0.674);
         }
         

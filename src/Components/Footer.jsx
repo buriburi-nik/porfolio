@@ -22,8 +22,8 @@ const Footer = () => {
   });
   
   const socialLinks = [
-    { name: "LinkedIn", url: "https://linkedin.com", icon: "fa-linkedin" },
-    { name: "GitHub", url: "https://github.com", icon: "fa-github" },
+    { name: "LinkedIn", url: "https://www.linkedin.com/in/nikhil-gharat-dev/", icon: "fa-linkedin" },
+    { name: "GitHub", url: "https://github.com/buriburi-nik", icon: "fa-github" },
     { name: "Twitter", url: "https://twitter.com", icon: "fa-twitter" }
   ];
 
@@ -33,10 +33,9 @@ const Footer = () => {
 
       <div className="footer-top">
         <div className="footer-top-left">
-          <img src={footer_logo} alt="Footer Logo" />
+          <img src={footer_logo} alt="Footer Logo" className='logo.footer' />
           <p>
-            I am a frontend developer. I am passionate about building user-friendly interfaces and creating engaging experiences.
-          </p>
+          I bring designs to life with clean code and thoughtful interactions—bridging the gap between aesthetics and usability.          </p>
         </div>
 
         <div className="footer-top-right">

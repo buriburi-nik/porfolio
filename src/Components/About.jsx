@@ -49,8 +49,7 @@ const About = () => {
         <div className="about-right">
           <div className="about-para">
             <p>
-              Hello, I'm a front-end developer with a foundation in software engineering and a fascination for intuitive design.
-Though early in my career, I approach every project with curiosity and a drive to create meaningful digital experiences. I believe the best interfaces aren’t just seen—they’re felt. My mission is to design with intent, develop with precision, and always keep the user at the center.
+            Front-end developer blending software engineering fundamentals with a passion for human-centered design. I build experiences that don’t just function—they connect.
             </p>
             <p>
               I'm a creative, inquisitive problem-solver seeking new opportunities
