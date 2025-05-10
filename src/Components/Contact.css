@@ -68,7 +68,10 @@
     display: flex;
     flex-direction: column;
     font-size: 22px;
+    cursor: pointer;
+
 }
+
 
 .contact-detail {
     display: flex;
@@ -81,6 +84,7 @@
     font-size: 22px;
     font-weight: 500;
 }
+
 
 .contact-right input{
     width: 550px; height: 78px;
@@ -156,7 +160,7 @@
     }
 
     .contact-section {
-        gap: 100px;
+        gap: 60px;
     }
 
     .contact-right input {
@@ -175,7 +179,7 @@
 .contact-title img {    width: 130px;}
     .contact-section {
         flex-direction: column;
-        gap: 60px;
+        gap: 40px;
     }
 
     .contact-title h1,
@@ -210,7 +214,7 @@
     }
 
     .contact {
-        margin: 20px 20px;
+        margin: 40px 15px;
     }
 
     .contact-section {

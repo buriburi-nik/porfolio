@@ -2,6 +2,7 @@ import './Navbar.css';
 import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import logo from '../assets/logo.svg';
+import logodark from '../assets/nikhil-logo.svg';
 import underline from '../assets/nav_underline.svg';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import MagneticButton from '../common/MagneticButton';
@@ -70,12 +71,14 @@ function HamburgerToggle({ toggle, scrolled }) {
   );
 }
 
-export default function Navbar() {
+export default function Navbar({ scrolled, theme }) {
   const [activeMenu, setActiveMenu] = useState('home');
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isToggleClicked, setIsToggleClicked] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const menuRef = useRef(null);
+
+  // Determine which logo to display based on theme
+  const logoSrc = theme === 'pastel' ? logodark : logo;
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -113,14 +116,6 @@ export default function Navbar() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   const handleMenuClick = id => {
     setActiveMenu(id);
     setIsSidebarOpen(false);
@@ -137,7 +132,7 @@ export default function Navbar() {
     <>
       <div className={`nav-header ${scrolled ? 'scrolled' : ''}`}>
         <AnchorLink href="#home" offset={50} onClick={() => handleMenuClick('home')}>
-          <img src={logo} alt="Logo" className="nav-logo" />
+          <img src={logoSrc} alt="Logo" className="nav-logo" />
         </AnchorLink>
         <HamburgerToggle toggle={toggleSidebar} scrolled={scrolled} />
       </div>

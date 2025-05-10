@@ -64,6 +64,23 @@
   padding-left: 30px;
   padding-right: 20px;
   box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+  color : var(--text-color);
+}
+.sidebar-menu p {
+  color: #c71919; /* Default color for inactive items */
+  transition: color 0.3s ease;
+}
+
+.active-text {
+  color: #fff700; /* Vibrant color for active items */
+}
+
+.inactive-text {
+  color: rgba(255, 255, 255, 0.6); /* Lighter color for inactive items */
+}
+
+.sidebar-menu p:hover {
+  color: #aa00ff; /* Hover color */
 }
 
 .sidebar-close {

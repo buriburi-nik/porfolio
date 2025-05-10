@@ -76,7 +76,8 @@ const App = () => {
 
       {!showPreloader && (
         <>
-          <Navbar scrolled={scrolled} />
+          <Navbar scrolled={scrolled} theme={theme} />
+
           <Hero1 />
           <CSSWaveDivider gradient="var(--divider-gradient)" />
           <About />
@@ -85,7 +86,7 @@ const App = () => {
           <CSSWaveDivider gradient="var(--divider-gradient)" />
           <Contact />
           <CSSWaveDivider flip gradient="var(--divider-gradient)" />
-          <Footer />
+          <Footer theme={theme} />
         </>
       )}
     </div>

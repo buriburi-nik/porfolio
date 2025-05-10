@@ -1,0 +1,41 @@
+<svg width="200" height="60" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF6B6B"/>
+      <stop offset="100%" stop-color="#FFD93D"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect
+    x="42"
+    y="24"
+    width="75"
+    height="18"
+    rx="9"
+    fill="#1a1a1a"
+    filter="url(#glow)"
+  />
+  <circle
+    cx="117" cy="33" r="9"
+    fill="#1a1a1a"
+    filter="url(#glow)"
+  />
+
+  <text
+    x="0"
+    y="45"
+    font-family="Verdana"
+    font-size="40"
+    font-weight="bold"
+    fill="#1a1a1a"
+  >
+    Nikhil
+  </text>
+</svg>

@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import './Footer.css';
 import footer_logo from '../assets/logo.svg';
+import logodark from '../assets/nikhil-logo.svg'; // dark theme logo
 
-const Footer = () => {
+const Footer = ({ theme }) => {
   const [currentTime, setCurrentTime] = useState(new Date());
   
   useEffect(() => {
@@ -27,15 +28,19 @@ const Footer = () => {
     { name: "Twitter", url: "https://twitter.com", icon: "fa-twitter" }
   ];
 
+  // Set the logo based on the theme
+  const logoSrc = theme === 'pastel' ? logodark : footer_logo;
+
   return (
     <div className="footer">
       <hr className="footer-divider" />
 
       <div className="footer-top">
         <div className="footer-top-left">
-          <img src={footer_logo} alt="Footer Logo" className='logo.footer' />
+          <img src={logoSrc} alt="Footer Logo" className="logo footer-logo" />
           <p>
-          I bring designs to life with clean code and thoughtful interactions—bridging the gap between aesthetics and usability.          </p>
+            I bring designs to life with clean code and thoughtful interactions—bridging the gap between aesthetics and usability.
+          </p>
         </div>
 
         <div className="footer-top-right">

@@ -127,7 +127,7 @@
   height: 0;
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
-  border-bottom: 12px solid white;
+  border-bottom: 12px solid var(--text-color);
 }
 
 .back-to-top:hover {
