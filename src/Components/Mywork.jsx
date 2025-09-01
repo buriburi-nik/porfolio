@@ -1,4 +1,3 @@
-
 // src/Components/Mywork.jsx
 import { useState, useEffect, useRef } from 'react';
 import './Mywork.css';
@@ -7,7 +6,6 @@ import mywork_data from '../assets/mywork_data';
 import arrow_icon from '../assets/arrow_icon.svg';
 import { X, Github, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
 // import Magnetic from '../common/Magnetic';
-
 
 const Mywork = () => {
   const [visibleProjects, setVisibleProjects] = useState(3);
@@ -43,6 +41,17 @@ const Mywork = () => {
       prev + 3 <= mywork_data.length ? prev + 3 : mywork_data.length
     );
   };
+
+  const handleShowLess = () => {
+    setVisibleProjects(3);
+    // Smooth scroll to the work section
+    if (workSectionRef.current) {
+      workSectionRef.current.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start' 
+      });
+    }
+  };
   
   const openProjectModal = (project) => {
     setSelectedProject(project);
@@ -74,6 +83,40 @@ const Mywork = () => {
   const filteredProjects = filter === 'All' 
     ? mywork_data 
     : mywork_data.filter(project => project.category === filter);
+
+  // Inline styles for show less functionality
+  const showLessButtonStyle = {
+    marginTop: '20px',
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    borderRadius: '50px',
+    border: '2px solid rgba(255, 255, 255, 0.2)',
+    padding: '15px 30px',
+    cursor: 'pointer',
+    transition: 'all 0.3s ease',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: '10px',
+    fontSize: '16px',
+    fontWeight: '500',
+    color: 'white',
+    backdropFilter: 'blur(10px)',
+    boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
+  };
+
+  const showLessButtonHoverStyle = {
+    ...showLessButtonStyle,
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    borderColor: 'rgba(255, 255, 255, 0.4)',
+    transform: 'translateY(-2px)',
+    boxShadow: '0 8px 25px rgba(0, 0, 0, 0.2)',
+  };
+
+  const showLessArrowStyle = {
+    transform: 'rotate(180deg)',
+    transition: 'transform 0.3s ease',
+    filter: 'brightness(0) invert(1)', // Makes the arrow white
+  };
   
   return (
     <div className={`mywork ${isInView ? 'in-view' : ''}`} id='work' ref={workSectionRef}>  
@@ -128,12 +171,38 @@ const Mywork = () => {
         ))}
       </div>
       
-      {visibleProjects < filteredProjects.length && (
+      {/* Show More/Less buttons */}
+      <div className="mywork-buttons">
+        {visibleProjects < filteredProjects.length && (
           <div className="mywork-showmore animate-btn" onClick={handleShowMore}>
-        <p>Show more</p>
-        <img src={arrow_icon} alt="" className="arrow-icon" />
+            <p>Show more</p>
+            <img src={arrow_icon} alt="" className="arrow-icon" />
+          </div>
+        )}
+        
+        {visibleProjects > 3 && (
+          <div 
+            className="mywork-showless animate-btn" 
+            onClick={handleShowLess}
+            style={showLessButtonStyle}
+            onMouseEnter={(e) => {
+              Object.assign(e.target.style, showLessButtonHoverStyle);
+            }}
+            onMouseLeave={(e) => {
+              Object.assign(e.target.style, showLessButtonStyle);
+            }}
+          >
+            <p style={{ margin: 0, color: 'white' }}>Show less</p>
+            <img 
+              src={arrow_icon} 
+              alt="" 
+              className="arrow-icon show-less-arrow" 
+              style={showLessArrowStyle}
+            />
+          </div>
+        )}
       </div>
-      )}
+
       {/* Project Modal */}
       {selectedProject && (
         <div className="project-modal-overlay" onClick={closeProjectModal}>
