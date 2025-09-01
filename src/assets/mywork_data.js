@@ -3,14 +3,13 @@ import project11_img from '../assets/food (1).png'
 import project12_img from '../assets/food (2).png'
 import project13_img from '../assets/food (3).png'
 
-
 import project21_img from '../assets/geek (1).png'
 import project22_img from '../assets/geek (2).png'
 import project23_img from '../assets/geek (3).png'
 
-import project31_img from '../assets/basic (1).png'
-import project32_img from '../assets/basic (2).png'
-import project33_img from '../assets/basic (3).png'
+import project31_img from '../assets/Mat01.png'
+import project32_img from '../assets/Mat02.png'
+import project33_img from '../assets/Mat03.png'
 
 import project41_img from '../assets/fitness (3).png'
 import project42_img from '../assets/fitness (2).png'
@@ -43,7 +42,30 @@ demoLink: "https://mct-5fcl.vercel.app/"
 
     },
     {
-      w_no: 2,
+   
+
+w_no: 2,
+  w_name: "Material UI Component Library",
+  w_img: project31_img, // replace with your actual image import/variable
+  images: [project31_img, project32_img, project33_img], 
+  description: "A custom Material UI-inspired component library built with React.js and Tailwind CSS. It provides reusable, responsive, and themeable UI components that can be integrated into modern web applications.",
+  category: "Web App",
+  technologies: ["React.js", "Tailwind CSS", "JavaScript (ES6)", "HTML5", "CSS3"],
+  features: [
+    "Custom reusable UI components (buttons, cards, modals, forms, etc.)",
+    "Responsive layouts for mobile and desktop",
+    "Theme customization (light/dark mode support)",
+    "Interactive component showcase with live preview",
+    "Component props-based customization for flexibility",
+    "Built with accessibility in mind (ARIA roles, keyboard navigation)",
+    "Optimized performance using React hooks and memoization"
+  ],
+  githubLink: "https://github.com/buriburi-nik/MaterialUI", 
+  demoLink: "https://material-ui-alpha-roan.vercel.app/"
+
+    },
+    {
+    w_no: 3,
 w_name: "Geek Food (on-going)",
 w_img: project21_img,
 images: [project21_img, project22_img, project23_img], 
@@ -57,29 +79,6 @@ features: [
 ],
 githubLink: "https://github.com/buriburi-nik/GEEkFOoD", 
 demoLink: "https://ge-ek-f-oo-d.vercel.app/" 
-
-    },
-    {
-      w_no: 3,
-w_name: "Basic E-commerce Website",
-w_img: project33_img,
-images: [project33_img, project32_img, project31_img], 
-description: "A modern and responsive e-commerce site using HTML, CSS, and JavaScript with product data from the Fake Store API.",
-category: "Web App",
-technologies: ["HTML5", "CSS3", "JavaScript (ES6)", "Fake Store API"],
-features: [
-    "Login / Signup using localStorage",
-    "Forgot Password functionality",
-    "Products listing from Fake Store API",
-    "Search products by name",
-    "Filter by category",
-    "Like products and view liked items",
-    "Dark mode toggle",
-    "Product detail page",
-    "Fully responsive, user-friendly interface"
-],
-githubLink: "https://github.com/buriburi-nik/basic-e-commerce",
-demoLink: "https://basic-e-commerce-five.vercel.app/"
 
     },
     {
