@@ -78,7 +78,13 @@ export default function Navbar({ scrolled, theme }) {
   const menuRef = useRef(null);
 
   // Determine which logo to display based on theme
-  const logoSrc = theme === 'pastel' ? logodark : logo;
+  // const logoSrc = theme === 'pastel' ? logodark : logo;
+    let logoSrc;
+    if (theme === 'pastel' || theme === 'dark') {
+     logoSrc = logodark;
+    } else {
+  logoSrc = logo;
+    }
 
   useEffect(() => {
     const observer = new IntersectionObserver(
