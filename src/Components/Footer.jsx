@@ -29,14 +29,8 @@ const Footer = ({ theme }) => {
   ];
 
   // Set the logo based on the theme
+  const logoSrc = theme === 'pastel' ? logodark : footer_logo;
   
-     let logoSrc;
-    if (theme === 'pastel' || theme === 'dark') {
-     logoSrc = logodark;
-    } else {
-  logoSrc =  footer_logo;
-    }
-
 
   return (
     <div className="footer">

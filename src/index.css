@@ -1,124 +1,97 @@
-* {
-  margin: 0;
-  padding: 0;
-}
 
-/* ---------------------------------------------------
-   Base Theme (Default)
----------------------------------------------------- */
+
+  
+*{
+    margin: 0;
+    padding: 0;
+}
 :root {
-  /* Colors */
-  --background-color: #ffffff;
-  --text-color: #000000;
-  --border-color: #ffffff;
-  --svg-color: #080707;
+    --background-color: #ffffff;
+    --text-color: #000000;
+    --accent-gradient: linear-gradient(267deg, #654ea3, #eaafc8);
+    --divider-gradient: linear-gradient(267deg, #ff87c3, #654ea3);
+    --svg-color: #080707;
+    --border-color: white;
+    --special: linear-gradient(267deg, #654ea3, #eaafc8);
+    --project-overlay : rgba(255, 251, 251, 0.9);
+    --sidebar-color : #02102b;
+  }
+  
+ [data-theme='dark'] {
+  --background-color: #000000;
+  --text-color: #f5e9dd;
 
-  /* Gradients */
-  --accent-gradient: linear-gradient(267deg, #654ea3, #eaafc8);
-  --divider-gradient: linear-gradient(267deg, #ff87c3, #654ea3);
-  --special: linear-gradient(267deg, #654ea3, #eaafc8);
+  /* Orange-accented gradient */
+  --accent-gradient: linear-gradient(267deg, #ff7a1c, #ffb36b);
 
-  /* UI */
-  --project-overlay: rgba(255, 251, 251, 0.9);
-  --sidebar-color: #02102b;
-}
-
-/* ---------------------------------------------------
-   Dark Theme
----------------------------------------------------- */
-[data-theme='dark'] {
-  /* Colors */
-  --background-color: #ffffff; /* White background */
-  --text-color: #000000;
-  --border-color: #1a1a1a;
-  --svg-color: #333;
-
-  /* Accent (using your #ff7e36) */
-  --accent-gradient: linear-gradient(
-    267deg,
-    #dbb20e,
-    #ff9a63
-  );
-
-   --svg-color: #ff7e36; /* Accent color for SVGs */
-  /* Divider – pastel blend derived from accent */
-  --divider-gradient: linear-gradient(
-    90deg,
-    #ffd3b8, /* soft light orange */
-    #ffb88e, /* pastel orange */
-    #ff9a63, /* accent mix */
-    #ff7e36, /* primary accent */
-    #ff9260, 
-    #ffd6c2
-  );
-
-  /* Special accent */
-  --special: linear-gradient(
-    267deg,
-    #ff7e36,
-    #ffb189
-  );
-
-  /* UI */
-  --sidebar-color: #e97510; /* soft pastel sidebar */
-  --project-overlay: rgba(255, 255, 255, 0.7);
-}
-
-/* ---------------------------------------------------
-   Light Theme
----------------------------------------------------- */
-[data-theme='light'] {
-  --background-color: #A8DADC;
-  --text-color: #1D3557;
-  --border-color: #090909;
-  --svg-color: #ffffff;
-
-  --accent-gradient: linear-gradient(267deg, #457B9D, #1D3557);
+  /* Divider with deep oranges + warm tones */
   --divider-gradient: linear-gradient(
     267deg,
-    #ca79e3,
-    #d77cd8,
-    #ec88b5,
-    #f6a974,
-    #f9844a,
-    #F26430
+    #ff7a1c,   /* Vivid orange */
+    #e36414,   /* Deep orange */
+    #f08a24,   /* Warm amber */
+    #ffb36b,   /* Soft peach */
+    #ffd9b3,   /* Light peach */
+    #fff0e0    /* Very light warm tint */
   );
-  --special: linear-gradient(267deg, #3b7cd7, #30bae0);
 
-  --sidebar-color: #d28269;
-  --project-overlay: rgba(255, 255, 255, 0.8);
+  --svg-color: #fff;
+  --special: transparent;
+  --project-overlay: rgba(0, 0, 0, 0.8);
+  --sidebar-color: #1c0f00; /* dark warm brown/orange-tinted */
 }
 
-/* ---------------------------------------------------
-   Pastel Theme
----------------------------------------------------- */
-[data-theme='pastel'] {
-  --background-color: #f1f0e7;
-  --text-color: #000000;
-  --border-color: #1a1a1a;
-  --svg-color: #333;
+  
+  [data-theme='light'] {
+    --background-color: 		#A8DADC;
+    --text-color:  #1D3557;
+    --accent-gradient: linear-gradient(267deg, #457B9D, #1D3557);
+    --divider-gradient: linear-gradient(
+      267deg,
+      #ca79e3,       /* Purple */
+      #d77cd8,       /* Light purple-pink */
+      #ec88b5,       /* Soft pink */
+      #f6a974,       /* Peach */
+      #f9844a,       /* Vibrant orange */
+      #F26430        /* Deep orange */
 
-  --accent-gradient: linear-gradient(90deg, #f5896b, #f077e8);
-  --divider-gradient: linear-gradient(
-    90deg,
-    #3be0bf,
-    #2f9e89,
-    #5d87a8,
-    #b56db9,
-    #e087c2,
-    #c2129f
-  );
-  --special: linear-gradient(267deg, #79e238, #f369a3);
+    );
+    --special: linear-gradient(267deg, #3b7cd7, #30bae0);
 
-  --sidebar-color: #b4d9e8;
-  --project-overlay: rgba(255, 255, 255, 0.674);
-}
+        --border-color: rgb(9, 9, 9);
+    --sidebar-color :		#d28269;
+    --project-overlay : rgba(255, 255, 255, 0.8);    --svg-color: #fff; 
 
-/* ---------------------------------------------------
-   Global styling
----------------------------------------------------- */
-body {
-  background: var(--background-color);
-  color: var(--text-color);
-  font-family: 'Outfit', sans-serif;
-}
+
+  }
+
+        [data-theme='pastel'] {
+          /* #f1f0e7 */
+          --background-color:	#f1f0e7; /* A slightly brighter soft off-white for better contrast */
+          --text-color: #000000; 
+          --accent-gradient: linear-gradient(90deg, #f5896b, #f077e8); 
+          --divider-gradient: linear-gradient(
+            90deg,
+            #3be0bf,     /* Teal */
+            #2f9e89,     /* Muted teal */
+            #5d87a8,     /* Soft blue-grey */
+            #b56db9,     /* Soft lavender */
+            #e087c2,     /* Light pink lavender */
+            #c2129f      /* Deep magenta */
+          );
+          --special: linear-gradient(267deg, #79e238, #f369a3);
+
+          
+                    --border-color: #1a1a1a; 
+          --stroke: #333; 
+          --sidebar-color :#b4d9e8;
+          --project-overlay : rgba(255, 255, 255, 0.674);
+        }
+        
+  
+  body {
+    background: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Outfit', sans-serif;
+  }
+  

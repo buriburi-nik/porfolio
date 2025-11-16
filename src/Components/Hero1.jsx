@@ -1,4 +1,4 @@
-import profile from '../assets/gojo.png'; // Profile Image
+import profile from '../assets/dp (1).jpg'; // Profile Image
 import './Hero.css';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import { FaDownload } from 'react-icons/fa'; // Download icon
