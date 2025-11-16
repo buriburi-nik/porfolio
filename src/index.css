@@ -34,8 +34,9 @@
     #ffd9b3,   /* Light peach */
     #fff0e0    /* Very light warm tint */
   );
+  --in-color: #ffd9b3;
 
-  --svg-color: #fff;
+  --svg-color: #f4961a;
   --special: transparent;
   --project-overlay: rgba(0, 0, 0, 0.8);
   --sidebar-color: #1c0f00; /* dark warm brown/orange-tinted */
@@ -61,33 +62,13 @@
         --border-color: rgb(9, 9, 9);
     --sidebar-color :		#d28269;
     --project-overlay : rgba(255, 255, 255, 0.8);    --svg-color: #fff; 
+   
+    --in-color: #5d87a8;
 
 
   }
 
-        [data-theme='pastel'] {
-          /* #f1f0e7 */
-          --background-color:	#f1f0e7; /* A slightly brighter soft off-white for better contrast */
-          --text-color: #000000; 
-          --accent-gradient: linear-gradient(90deg, #f5896b, #f077e8); 
-          --divider-gradient: linear-gradient(
-            90deg,
-            #3be0bf,     /* Teal */
-            #2f9e89,     /* Muted teal */
-            #5d87a8,     /* Soft blue-grey */
-            #b56db9,     /* Soft lavender */
-            #e087c2,     /* Light pink lavender */
-            #c2129f      /* Deep magenta */
-          );
-          --special: linear-gradient(267deg, #79e238, #f369a3);
 
-          
-                    --border-color: #1a1a1a; 
-          --stroke: #333; 
-          --sidebar-color :#b4d9e8;
-          --project-overlay : rgba(255, 255, 255, 0.674);
-        }
-        
   
   body {
     background: var(--background-color);
