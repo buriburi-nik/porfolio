@@ -55,7 +55,7 @@
   top: 0;
   right: 0;
   width: 260px;
-  height: 100vh;
+  height: 100dvh;
   background-color: var(--sidebar-color);
   padding-top: 80px;
   z-index: 500;
