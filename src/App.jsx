@@ -14,15 +14,18 @@ import Preloader from './Components/Preloader';
 import './Preloader.css';
 import 'font-awesome/css/font-awesome.min.css';
 
-const themes = ['dark', 'light', 'pastel'];
-
 const App = () => {
   const [showPreloader, setShowPreloader] = useState(true);
   const [scrolled, setScrolled] = useState(false);
-  const [theme, setTheme] = useState('dark');
+
+  // Only two themes
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem("theme") || "dark";
+  });
 
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
   }, [theme]);
 
   useEffect(() => {
@@ -33,6 +36,7 @@ const App = () => {
       entries => entries.forEach(e => e.isIntersecting && e.target.classList.add('visible')),
       { threshold: 0.1 }
     );
+
     document.querySelectorAll(
       '.fade-in, .slide-up, .slide-right, .slide-left, .scale-in, .stagger-item'
     ).forEach(el => observer.observe(el));
@@ -43,32 +47,44 @@ const App = () => {
     };
   }, []);
 
-  const cycleTheme = () => {
-    const nextIndex = (themes.indexOf(theme) + 1) % themes.length;
-    setTheme(themes[nextIndex]);
+  // Toggle only dark/light
+  const toggleTheme = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
   };
 
   return (
     <div style={{ position: 'relative', zIndex: 0 }}>
-      <button
-        onClick={cycleTheme}
+
+      {/* THEME SLIDER TOGGLE */}
+      <div
+        onClick={toggleTheme}
         style={{
-          position: 'fixed',
-          bottom: '1rem',
-          left: '1rem',
-          zIndex: 99,
-          background: 'var(--accent-gradient)',
-          color: 'white',
-          border: 'none',
-          padding: '0.5rem 1rem',
-          borderRadius: '0.5rem',
-          cursor: 'pointer',
-          fontWeight: 'bold',
-          transition: 'background 0.3s ease'
+          position: "fixed",
+          bottom: "1rem",
+          left: "1rem",
+          width: "55px",
+          height: "28px",
+          background: theme === "dark" ? "#333" : "#ddd",
+          borderRadius: "20px",
+          cursor: "pointer",
+          display: "flex",
+          alignItems: "center",
+          padding: "3px",
+          transition: "0.3s",
+          zIndex: 99
         }}
       >
-        Theme: {theme}
-      </button>
+        <div
+          style={{
+            height: "22px",
+            width: "22px",
+            borderRadius: "50%",
+            background: "var(--accent-gradient)",
+            transform: theme === "dark" ? "translateX(0px)" : "translateX(27px)",
+            transition: "0.3s"
+          }}
+        />
+      </div>
 
       <AnimatePresence>
         {showPreloader && <Preloader onFinish={() => setShowPreloader(false)} />}
@@ -77,7 +93,6 @@ const App = () => {
       {!showPreloader && (
         <>
           <Navbar scrolled={scrolled} theme={theme} />
-
           <Hero1 />
           <CSSWaveDivider gradient="var(--divider-gradient)" />
           <About />
